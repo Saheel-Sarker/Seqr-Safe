@@ -1,22 +1,26 @@
 import React from 'react'
 import Link from 'next/link'
 
-export default function Header(proppinsClass) {
-  return (
-    <header class="header">
-        <nav class={`${poppinsClass} flex justify-between items-center py-4`}>
-            <ul>
-                <li><Link href="/home">Home</Link></li>
-                <li><Link href="/pricing">Pricing</Link></li>
-                <li><Link href="/contact">Contact</Link></li>
-                <li><Link href="/faq">FAQ</Link></li>
-            </ul>
-        </nav>
-        <h1 class="brand-name">Keepr</h1>
-        <div class="auth-buttons">
-            <button className="border border-blue-500 text-blue-500 px-4 py-2 rounded-md">Login</button>
-            <button className="bg-blue-500 text-white px-4 py-2 rounded-md ml-4">Sign Up</button>
-        </div>
-  </header>
-  )
+export default function Header({font}) {
+    return (
+        <header className={`${font.className} flex px-10 py-10 justify-between`} >
+            <nav className={`${font.className} `}>
+                <ul className='flex items-center gap-x-10 text-2xl font-bold'>
+                    <li><Link href="/">Home</Link></li>
+                    <li><Link href="/#pricing">Pricing</Link></li>
+                    <li><Link href="/contact">Contact</Link></li>
+                    <li><Link href="/faq">FAQ</Link></li>
+                </ul>
+            </nav>
+            <h1 className="text-5xl mr-[205px]">Keepr</h1>
+            <div className="gap-4">
+                <button className="border border-orange-500 text-orange-500 px-6 py-3 rounded-md hover:bg-amber-500 hover:border-amber-500 hover:text-white transition-colors">  
+                    <Link href="/login">Login</Link>
+                </button>
+                <button className="bg-orange-500 text-white px-6 py-3 rounded-md ml-4 hover:bg-amber-500 transition-colors">
+                    <Link href="/signgup">Sign Up</Link>
+                </button>
+            </div>
+        </header>
+    )
 }
