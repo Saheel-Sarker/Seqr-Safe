@@ -1,4 +1,5 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 
 export default function Pricing() {
     const blurbs = [
@@ -18,6 +19,8 @@ export default function Pricing() {
             title: "Password AutoFill",
           }, 
     ];
+    const [billMonthly, setBillMonthly] = useState(true);
+
   return (
     <section id="pricing" className="py-24 ">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -57,7 +60,7 @@ export default function Pricing() {
                         </ul>
 
                         <a 
-                          href="javascript:;" 
+                          href="/signup" 
                           className="py-2.5 w-[calc(100%-10px)] border border-violet-600 shadow-sm rounded-lg transition-all duration-500 text-base text-white font-semibold text-center mx-auto block hover:bg-violet-700"
                           style={{ margin: '0 auto', maxWidth: 'calc(100% - 10px)' }}
                         >

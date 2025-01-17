@@ -1,6 +1,9 @@
+'use client'
 import React from 'react'
+import { useState } from 'react';
 
 export default function Faq() {
+
     const qa = [
         {
             question: 'Why should I use Pass Protect?',
@@ -27,15 +30,31 @@ export default function Faq() {
             answer: 'Yes, Pass Protect can be used to store other sensitive information, such as credit card details, secure notes, or other types of personal information that you want to keep secure.'
         },
     ];
+
+    const [expanded, setExpanded] = useState(null);
+    function toggleAnswer(index) {
+        setExpanded(expanded === index ? null : index);
+    };
+
+
   return (
-    <section className="py-16 bg-gray-50 flex justify-center items-center">
-      <div className="bg-white shadow-lg rounded-lg p-8 max-w-lg w-full">
-        {/* Title */}
-        <h2 className="text-2xl font-semibold text-gray-800 text-center mb-4">Frequently asked Questions</h2>
-        {qa.map((item,index)=> (
-            <div key={index}>
-                <h1>{item.question}</h1>
-                <p>{item.answer}</p>
+    <section className="py-16 bg-gradient-to-r from-indigo-800 via-violet-950 to-indigo-950  flex justify-center items-center">
+      <div className="bg-slate-800 rounded-lg p-8 max-w-lg w-full">
+
+        <h2 className="text-2xl font-semibold text-white text-center mb-4">Frequently asked Questions</h2>
+        {qa.map((item, index) => (
+            <div key={index} className="border-b border-gray-300">
+                <div className="flex justify-between items-center cursor-pointer py-4 " onClick={() => toggleAnswer(index)}>
+                    <h1 className="text-lg font-medium text-white ">{item.question}</h1>
+                    <div className={`w-6 h-6 flex items-center justify-center rounded-full border-2 border-gray-400 relative flex-shrink-0`}>
+                        <div className={`absolute w-3 h-[2px]  bg-gray-400`}></div>
+                        <div className={`absolute w-[2px] h-3  bg-gray-400  transition-transform ${expanded === index ? 'rotate-90' : ''}`} style={{ transformOrigin: 'center' }} ></div>
+                    </div>
+                    
+                </div>
+                {expanded === index && (
+                    <p className="text-gray-400 text-sm mb-4">{item.answer}</p>
+                )}
             </div>
         ))}
 
