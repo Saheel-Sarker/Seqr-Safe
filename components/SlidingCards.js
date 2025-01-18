@@ -55,7 +55,7 @@ export default function SlidingCards() {
     ];
 
     return (
-        <section className="space-y-10 px-5 py-20">
+        <section className="space-y-10 px-5 py-20 bg-gradient-to-r from-violet-800 via-violet-950 to-indigo-950 ">
             {blurbs.map((item,index) => (
                 <div key={index}  data-aos={index % 2 === 0 ? "fade-right" : "fade-left"} className={`${item.color} shadow-md rounded-lg p-6 max-w-xl mx-auto`}>
                     <h3 className="text-xl font-semibold">{item.title}</h3>

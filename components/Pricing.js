@@ -22,8 +22,8 @@ export default function Pricing() {
     const [billMonthly, setBillMonthly] = useState(true);
 
   return (
-    <section id="pricing" className="py-24 ">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="pricing" className="py-24 bg-gradient-to-r from-violet-800 via-violet-950 to-indigo-950 ">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
             <div className="mb-12">
                 <h2 className="font-manrope text-5xl text-center font-bold text-white mb-4">Pricing </h2>
                 <p className="text-gray-400 text-center leading-6 mb-9">Choose a plan that's right for you.</p>
