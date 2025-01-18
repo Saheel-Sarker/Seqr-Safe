@@ -12,7 +12,12 @@ export default function Header({font}) {
                     <li><Link href="/faq">FAQ</Link></li>
                 </ul>
             </nav>
-            <h1 className="text-5xl mr-[205px]">Keepr</h1>
+            <div className="flex items-center mr-[205px] ">
+                <div className="relative h-16 w-16 mr-4 bg-gray-300 rounded-md flex items-center justify-center">
+                    <img src="/crime-hacker-icon.svg" alt="hacker illustration" className="h-12 align-top" />
+                </div>
+                <h1 className="text-5xl font-serif">keepr</h1>
+            </div>
             <div className="gap-4">
                 <button className="border border-blue-950 text-white px-6 py-3 rounded-md hover:bg-amber-500 hover:border-amber-500 hover:text-white transition-colors">  
                     <Link href="/login">Login</Link>

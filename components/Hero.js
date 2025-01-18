@@ -4,16 +4,18 @@ import Link from 'next/link'
 
 export default function Hero() {
   return (
-    <section className="pt-10 flex items-center justify-between px-10 md:px-20 lg:px-32">
-    <div className="text-content max-w-lg space-y-6">
-        <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-red-500 via-yellow-500 to-blue-500 text-transparent bg-clip-text">
-        Protect Your Data, Seamlessly.
+    <section className="pt-10 flex items-center justify-between px-10 md:px-20 lg:px-40">
+    <div className="text-content max-w-4xl space-y-6">
+        <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-500 to-green-500 text-transparent bg-clip-text">
+        Keep data secure with Zero hassle, 
         </h1>
-        <p className="text-lg md:text-xl text-gray-600">
-        Your personal data is safe, secure, and accessible whenever you need it.
-        Experience the ultimate protection and convenience with Keepr.
+        <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-violet-500 to-pink-500 text-transparent bg-clip-text">
+        For peace of mind you deserve.
+        </h1>
+        <p className="text-lg md:text-2xl text-white">
+        Simple and secure password management for all your accounts!
         </p>
-        <button href='/signup' className="px-6 py-3 bg-yellow-500 text-white rounded-lg hover:bg-amber-500">
+        <button href='/signup' className="px-6 py-3 bg-yellow-500 text-white rounded-lg hover:bg-green-500">
         <Link href="/login">
             Get Started
         </Link>

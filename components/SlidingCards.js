@@ -49,7 +49,7 @@ export default function SlidingCards() {
           {
             title: "Trusted by Thousands",
             blurb: "Join the thousands of users trusting Keepr.",
-            color: 'bg-amber-300'
+            color: 'bg-red-500'
           }
 
     ];

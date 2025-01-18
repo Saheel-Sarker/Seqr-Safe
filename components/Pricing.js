@@ -25,27 +25,40 @@ export default function Pricing() {
     <section id="pricing" className="py-24 ">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-12">
-                <h2 className="font-manrope text-5xl text-center font-bold text-gray-500 mb-4">Choose your plan </h2>
-                <p className="text-gray-500 text-center leading-6 mb-9">7 Days free trial. No credit card required.</p>
-                <div className="flex justify-center items-center">
-                    <label className="min-w-[3.5rem] text-xl relative text-amber-600 mr-4 font-medium">Bill Monthly</label>
-                    <input type="checkbox" id="basic-with-description"
-                        className="relative shrink-0 w-11 h-6 p-0.5 bg-indigo-100 checked:bg-none checked:bg-indigo-100 rounded-full cursor-pointer transition-colors ease-in-out duration-200  focus:border-blue-600  appearance-none before:inline-block before:w-5 before:h-5 before:bg-amber-600 checked:before:bg-red-900 before:translate-x-0 checked:before:translate-x-full before:shadow before:rounded-full before:transform  before:transition before:ease-in-out before:duration-200 ">
-                    </input>
-                    <label className="relative min-w-[3.5rem] font-medium text-xl text-red-900 ml-4 ">
-                        Bill Yearly
-                    </label>
+                <h2 className="font-manrope text-5xl text-center font-bold text-white mb-4">Pricing </h2>
+                <p className="text-gray-400 text-center leading-6 mb-9">Choose a plan that's right for you.</p>
+                <div className="flex justify-center items-center mt-8">
+                    <div className="flex border-blue-950 bg-blue-950 border-8 rounded-lg overflow-hidden">
+    
+                        <div
+                            className={`rounded-lg w-32 py-2 text-center cursor-pointer transition-colors duration-300 ${billMonthly === true ? 'bg-white text-blue-950' : 'bg-blue-950 text-white'}`}
+                            onClick={() => setBillMonthly(true)}
+                        >
+                            Monthly
+                        </div>
+
+                        <div
+                            className={`rounded-lg w-32 py-2 text-center cursor-pointer transition-colors duration-300 ${billMonthly === false ? 'bg-white text-blue-950' : 'bg-blue-950 text-white'}`}
+                            onClick={() => setBillMonthly(false)}
+                        >
+                            Anually
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div className="flex flex-col mx-auto max-w-sm text-gray-900 rounded-2xl bg-slate-800 transition-all duration-500">
-                <div className="uppercase bg-gradient-to-r from-orange-600 to-violet-600 rounded-t-2xl p-3 text-center text-white">
-                                MOST POPULAR
-                </div>   
-                <div className="flex flex-col mx-auto max-w-sm text-white rounded-2xl  p-6 xl:py-9 xl:px-12 transition-all duration-500 ">
-                        <h3 className="font-manrope text-2xl font-bold mb-3">Free</h3>
+            <div className="flex flex-col mx-auto max-w-sm text-gray-900 border-2 border-violet-700 rounded-2xl bg-slate-800 transition-all duration-500">
+                <div className="flex flex-col mx-auto max-w-md text-white rounded-2xl  p-6 xl:py-9 xl:px-10 transition-all duration-500 min-w-96">
+                      
+                        {billMonthly ? <h3 className="font-manrope text-2xl font-bold mb-3">Monthly Subscription</h3> : <h3 className="font-manrope text-2xl font-bold mb-3">Annual Subscription</h3>}
                         <div className="flex items-center mb-6">
-                            <span className="font-manrope mr-2 text-6xl font-semibold">$0</span>
-                            <span className="text-xl text-gray-400 ">/ month</span>
+                            {billMonthly ? <span className="font-manrope mr-2 text-6xl font-semibold">$3.00</span> : <span className="font-manrope mr-2 text-6xl font-semibold">$2.50</span>}
+                            {billMonthly ? <span className="text-xl text-gray-400 ">/ month</span> : 
+                            <div>
+                              <span className="text-lg text-gray-400 ">/ month</span>
+                              <p className="text-lg text-gray-400 ">(Billed annually)</p>
+                            </div>
+                           }
+
                         </div>
                         <ul className="mb-12 space-y-6 text-left text-lg text-gray-400">
                         {blurbs.map((item, index) => (
@@ -61,10 +74,10 @@ export default function Pricing() {
 
                         <a 
                           href="/signup" 
-                          className="py-2.5 w-[calc(100%-10px)] border border-violet-600 shadow-sm rounded-lg transition-all duration-500 text-base text-white font-semibold text-center mx-auto block hover:bg-violet-700"
+                          className="py-2.5 w-[calc(100%-10px)] border bg-gradient-to-r from-orange-600 to-violet-600 border-violet-700 shadow-sm rounded-lg transition-all duration-500 text-base text-white font-semibold text-center mx-auto block hover:bg-green-700 hover:border-green-700 hover:bg-none"
                           style={{ margin: '0 auto', maxWidth: 'calc(100% - 10px)' }}
                         >
-                          Purchase Plan
+                          Purchase Plan!
                         </a>
 
                     </div> 

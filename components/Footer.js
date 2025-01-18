@@ -17,12 +17,12 @@ export default function Footer({font}) {
                     <a href="contact" className="hover:underline me-4 md:me-6">Contact us!</a>
                 </li>
                 <li>
-                    <a href="faq" className="hover:underline me-4 md:me-6">Frequently asked questions!
+                    <a href="faq" className="hover:underline me-4 md:me-6">Frequently asked questions
                     </a>
                 </li>
                 <li>
                     <a href="signup" className="hover:underline me-4 md:me-6">
-                    Sign up!</a>
+                    Sign up</a>
                 </li>
             </ul>
         </div>
