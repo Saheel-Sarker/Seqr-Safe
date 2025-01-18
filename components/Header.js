@@ -13,9 +13,7 @@ export default function Header({font}) {
                 </ul>
             </nav>
             <div className="flex items-center mr-[205px] ">
-                <div className="relative h-16 w-16 mr-4 bg-gray-300 rounded-md flex items-center justify-center">
-                    <img src="/crime-hacker-icon.svg" alt="hacker illustration" className="h-12 align-top" />
-                </div>
+                <img src="/crime-hacker-icon.svg" alt="hacker illustration" className="h-12 align-top mr-3" />
                 <h1 className="text-5xl font-serif">keepr</h1>
             </div>
             <div className="gap-4">
