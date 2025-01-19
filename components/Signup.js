@@ -80,7 +80,7 @@ export default function Signup() {
             <div className=''>
                 <label htmlFor="password" className="text-sm font-medium text-white mb-2 pt-2 flex items-center space-x-2">
                     <input type='checkbox' value='' className='accent-pink-500'></input> 
-                    <label> I agree with the <Link href={'/forgot-password'} className='text-pink-400'>Terms & Conditions</Link> </label> 
+                    <label> I agree with the <Link href={'/t&q'} className='text-pink-400'>Terms & Conditions</Link> </label> 
                 </label>
                 <button type='submit' className=" py-2 w-full border border-green-600 shadow-sm rounded-lg transition-all duration-500 text-base text-white font-semibold text-center mx-auto block hover:bg-green-700" >
                     Sign up

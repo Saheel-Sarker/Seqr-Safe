@@ -2,9 +2,12 @@
 
 import React from 'react'
 import Login from '@/components/Login'
+import Main from '@/components/Main';
 
 export default function page() {
     return (
-        <Login></Login>
+        <Main>
+            <Login></Login>
+        </Main>
     );
 };
