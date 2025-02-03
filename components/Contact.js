@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 export default function Contact() {
@@ -44,9 +45,11 @@ export default function Contact() {
 
           {/* Submit Button */}
           <div className="text-center">
-          <a href="javascript:;" className="py-2.5 w-[calc(100%-10px)] border border-green-600 shadow-sm rounded-lg transition-all duration-500 text-base text-white font-semibold text-center mx-auto block hover:bg-green-700" style={{ margin: '0 auto', maxWidth: 'calc(100% - 10px)' }}>
-            Send message
-        </a>
+          <div className="py-2.5 w-[calc(100%-10px)] border border-green-600 shadow-sm rounded-lg transition-all duration-500 text-base text-white font-semibold text-center mx-auto block hover:bg-green-700" style={{ margin: '0 auto', maxWidth: 'calc(100% - 10px)' }}>
+            <Link href='/'>
+                Send message
+            </Link>
+        </div>
         </div>
         </form>
         </div>

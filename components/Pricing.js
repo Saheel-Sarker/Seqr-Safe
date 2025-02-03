@@ -28,17 +28,17 @@ export default function Pricing() {
                 <h2 className="font-manrope text-5xl text-center font-bold text-white mb-4">Pricing </h2>
                 <p className="text-gray-400 text-center leading-6 mb-9">Choose a plan that's right for you.</p>
                 <div className="flex justify-center items-center mt-8">
-                    <div className="flex border-blue-950 bg-blue-950 border-8 rounded-lg overflow-hidden">
+                    <div className="flex border-red-950 bg-red-950 border-8 rounded-xl overflow-hidden">
     
                         <div
-                            className={`rounded-lg w-32 py-2 text-center cursor-pointer transition-colors duration-300 ${billMonthly === true ? 'bg-white text-blue-950' : 'bg-blue-950 text-white'}`}
+                            className={`rounded-lg text-lg w-32 py-2 text-center cursor-pointer transition-colors duration-300 ${billMonthly === true ? 'bg-white text-red-950' : 'bg-red-950 text-white'}`}
                             onClick={() => setBillMonthly(true)}
                         >
                             Monthly
                         </div>
 
                         <div
-                            className={`rounded-lg w-32 py-2 text-center cursor-pointer transition-colors duration-300 ${billMonthly === false ? 'bg-white text-blue-950' : 'bg-blue-950 text-white'}`}
+                            className={`rounded-lg text-lg w-32 py-2 text-center cursor-pointer transition-colors duration-300 ${billMonthly === false ? 'bg-white text-red-950' : 'bg-red-950 text-white'}`}
                             onClick={() => setBillMonthly(false)}
                         >
                             Anually

@@ -15,8 +15,8 @@ export default function Hero() {
         <p className="text-lg md:text-2xl text-white">
         Simple and secure password management for all your accounts!
         </p>
-        <button href='/signup' className="px-6 py-3 bg-yellow-500 text-white rounded-lg hover:bg-green-500">
-        <Link href="/login">
+        <button className="px-6 py-3 bg-yellow-500 text-white rounded-lg hover:bg-green-500">
+        <Link href="/signup">
             Get Started
         </Link>
         </button>
