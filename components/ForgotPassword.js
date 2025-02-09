@@ -21,9 +21,10 @@ export default function ForgotPassword() {
             />
         </div>
         <a className="py-2.5 w-[calc(100%-10px)] border border-green-600 shadow-sm rounded-lg transition-all duration-500 text-base text-white font-semibold text-center mx-auto block hover:bg-green-700" style={{ margin: '0 auto', maxWidth: 'calc(100% - 10px)' }}>
-          <Link>
+        Send Reset Link
+          {/* <Link>
               Send Reset Link
-          </Link>
+          </Link> */}
         </a>
         <h1 className=' text-red-700 text-center pt-10'>Resetting your password will cause you to lose all the data in your account! Only use this as a last resort</h1>
 
