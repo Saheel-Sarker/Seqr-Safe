@@ -27,12 +27,12 @@ export default function Passwords() {
             </tr>
           </thead>
           <tbody>
-            {passwords.map((item) => (
+            {/* {passwords.map((item) => (
               <PasswordItem
                 key={item.pid}
                 item={item}
               />
-            ))}
+            ))} */}
           </tbody>
         </table>
       </div>
