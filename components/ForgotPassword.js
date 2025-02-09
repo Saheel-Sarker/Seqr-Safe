@@ -1,4 +1,4 @@
-import Link from 'next/link'
+// import Link from 'next/link'
 import React from 'react'
 
 export default function ForgotPassword() {
@@ -27,8 +27,6 @@ export default function ForgotPassword() {
           </Link> */}
         </a>
         <h1 className=' text-red-700 text-center pt-10'>Resetting your password will cause you to lose all the data in your account! Only use this as a last resort</h1>
-
-    
     </div>
   </section>
   )
