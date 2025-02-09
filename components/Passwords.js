@@ -2,10 +2,6 @@ import React, { useState } from 'react';
 import PasswordItem from './PasswordItem';
 
 export default function Passwords() {
-  const passwords = [
-    { pid: 1, name: 'Google', url: 'https://google.com', password: '1234' },
-    { pid: 2, name: 'Facebook', url: 'https://facebook.com', password: 'abcd' },
-  ];
 
   return (
     <div className="flex flex-col h-full w-full p-6 text-gray-100">
