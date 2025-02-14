@@ -5,8 +5,7 @@ import React from 'react'
 export default function page() {
   return (
     <Main>
-      blah
-        {/* <ForgotPassword></ForgotPassword> */}
+      <ForgotPassword></ForgotPassword>
     </Main>
   )
 }

@@ -1,5 +1,6 @@
 import Sidebar from "@/components/Sidebar";
 import "../globals.css";
+import { PasswordProvider } from "@/contexts/PasswordContext";
 
 export const metadata = {
     title: "Dashboard",
@@ -14,8 +15,10 @@ export const metadata = {
           
           <Sidebar className='w-[250px] text-white fixed h-full"'></Sidebar>
           <div className="w-[2px] bg-white " ></div>
-          <div className='translate-y-[4%] flex-1'>
-            {children}
+          <div className='flex-1'>
+            <PasswordProvider>
+              {children}
+            </PasswordProvider>
           </div>
           
         </section>
