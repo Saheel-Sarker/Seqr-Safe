@@ -1,22 +1,41 @@
 import { usePasswords } from '@/contexts/PasswordContext';
-import { title } from 'process';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-export default function AddPasswordModal({setIsModalOpen}) {
-    const {addPassword} = usePasswords();
-    const [formData, setFormData] = useState({
-        title: "",
-        username: "",
-        password: "",
-        isVisible: false
-      });
-    function handleChange(e){
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+export default function AddPasswordModal({setIsModalOpen, password}) {
+    const {addPassword, editPassword} = usePasswords();
+    const [title, setTitle] = useState('');
+    const [username, setUsername] = useState('');
+    const [passwordText, setPasswordText] = useState('');
+    useEffect(()=>{
+        if (password){
+            setTitle(password.title);
+            setUsername(password.username);
+            setPasswordText(password.password);
+        }
+    },[]);
+
+    function handleChange(e){        
+        if (e.target.name == 'title') {
+            setTitle(e.target.value);
+        }
+        if (e.target.name == 'username') {
+            setUsername(e.target.value);
+        }
+        if (e.target.name == 'password') {
+            setPasswordText(e.target.value);
+        }
     };
+    
 
     function handleAdd(e){
         e.preventDefault(); // Prevents page reload
-        addPassword(formData);
+        const formData = {title: title, username: username, password: passwordText};
+        if (password){
+            editPassword(formData, password.id)
+        } else {
+            console.log("adding")
+            addPassword(formData);
+        }
         setIsModalOpen(false)
     };
     function handleCancel(){
@@ -32,10 +51,12 @@ export default function AddPasswordModal({setIsModalOpen}) {
                 Site
                 </label>
                 <input
-                placeholder="example.com"
+                value={title}
+                placeholder={password ? "Edit Title" :  "example.com"}
                 className="block w-full px-4 py-2 border border-gray-100 rounded-md text-white bg-slate-900"
                 onChange={handleChange}
                 name={"title"}
+
                 required
                 />
             </div>
@@ -45,10 +66,11 @@ export default function AddPasswordModal({setIsModalOpen}) {
                 User Name
                 </label>
                 <input
-                placeholder="Username"
+                value={username}
+                placeholder={password ? "Edit Username" :  "Username"}
                 className="block w-full px-4 py-2 border border-gray-100 rounded-md text-white bg-slate-900"
                 onChange={handleChange}
-                name={"user"}
+                name={"username"}
                 required
                 />
             </div>
@@ -58,7 +80,8 @@ export default function AddPasswordModal({setIsModalOpen}) {
                 Password
                 </label>
                 <input
-                placeholder="Password"
+                value={passwordText}
+                placeholder={password ? "Edit Password" :  "Password"}
                 className="block w-full px-4 py-2 border border-gray-100 rounded-md text-white bg-slate-900"
                 onChange={handleChange}
                 name={"password"}

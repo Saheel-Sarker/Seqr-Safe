@@ -7,6 +7,7 @@ export default function Passwords() {
   const {passwords} = usePasswords();
   const [searchTerm, setSearchTerm] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
+
   function filterPasswords(){
       const filteredPasswords = useMemo(() => passwords.filter(p => 
         p.title.toLowerCase().includes(searchTerm.toLowerCase())
@@ -21,11 +22,12 @@ export default function Passwords() {
   function handleAdd(){
     setIsModalOpen(true);
   }
+  
 
   function showAddModal(){
     if (isModalOpen){
       return(
-        <AddPasswordModal setIsModalOpen={setIsModalOpen}></AddPasswordModal>
+        <AddPasswordModal setIsModalOpen={setIsModalOpen} password={null}></AddPasswordModal>
 
       )
     }
@@ -55,7 +57,6 @@ export default function Passwords() {
           <thead className="border-b border-gray-700">
             <tr>
               <th className="px-4 py-2">Name</th>
-              <th className="px-4 py-2">URL</th>
             </tr>
           </thead>
           <tbody>

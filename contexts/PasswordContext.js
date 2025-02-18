@@ -1,5 +1,5 @@
 'use client'
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 // Create the context
 const PasswordContext = createContext();
@@ -13,12 +13,31 @@ const initialPasswords = [
 
 // Context Provider
 export const PasswordProvider = ({ children }) => {
-  const [passwords, setPasswords] = useState(initialPasswords);
+  const [passwords, setPasswords] = useState(() => {
+    return JSON.parse(localStorage.getItem("passwords")) || []; // Temp local storage for reloads
+  });
+
+  useEffect(() => {
+    localStorage.setItem("passwords", JSON.stringify(passwords));
+  }, [passwords]);
 
   // Add password
   function addPassword(data){
-    console.log(data)
     const newListofPasswords = passwords.concat({...data, id: passwords.length + 1});
+    setPasswords(newListofPasswords);
+  };
+
+  function editPassword(data, id){
+    const newListofPasswords = passwords.map((p) => {
+      if (p.id === id) {
+        console.log("the id is")
+        console.log(id)
+        return {...data, id:id};
+      }
+      else {
+        return p;
+      }
+    });
     setPasswords(newListofPasswords);
   };
 
@@ -44,7 +63,7 @@ export const PasswordProvider = ({ children }) => {
   };
 
   return (
-    <PasswordContext.Provider value={{ passwords, addPassword, removePassword, toggleVisibility }}>
+    <PasswordContext.Provider value={{ passwords, addPassword, editPassword, removePassword, toggleVisibility }}>
       {children}
     </PasswordContext.Provider>
   );
