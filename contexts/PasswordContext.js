@@ -4,18 +4,9 @@ import { createContext, useContext, useEffect, useState } from "react";
 // Create the context
 const PasswordContext = createContext();
 
-// Dummy password data (encrypted at runtime)
-const initialPasswords = [
-  { id: 1, title: "google.com", username: "saheel", password: "password123", isVisible: false },
-  { id: 2, title: "facebook.com", username: "shakkhor", password:"mySecurePass", isVisible: false },
-  { id: 3, title: "titkok.com", username: "saheel", password:"mySecurePass", isVisible: false },
-];
-
 // Context Provider
 export const PasswordProvider = ({ children }) => {
-  const [passwords, setPasswords] = useState(() => {
-    return JSON.parse(localStorage.getItem("passwords")) || []; // Temp local storage for reloads
-  });
+  const [passwords, setPasswords] = useState([]);
 
   useEffect(() => {
     localStorage.setItem("passwords", JSON.stringify(passwords));
