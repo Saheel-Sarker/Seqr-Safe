@@ -1,18 +1,11 @@
 import { usePasswords } from '@/contexts/PasswordContext';
 import React, { useEffect, useState } from 'react'
 
-export default function AddPasswordModal({setIsModalOpen, password}) {
+export default function AddPasswordModal({setIsModalOpen, password, editing}) {
     const {addPassword, editPassword} = usePasswords();
-    const [title, setTitle] = useState('');
-    const [username, setUsername] = useState('');
-    const [passwordText, setPasswordText] = useState('');
-    useEffect(()=>{
-        if (password){
-            setTitle(password.title);
-            setUsername(password.username);
-            setPasswordText(password.password);
-        }
-    },[]);
+    const [title, setTitle] = useState(password.title);
+    const [username, setUsername] = useState(password.username);
+    const [passwordText, setPasswordText] = useState(password.password);
 
     function handleChange(e){        
         if (e.target.name == 'title') {
@@ -30,9 +23,9 @@ export default function AddPasswordModal({setIsModalOpen, password}) {
     function handleAdd(e){
         e.preventDefault(); // Prevents page reload
         const formData = {title: title, username: username, password: passwordText};
-        if (password){
+        if (editing){
             editPassword(formData, password.id)
-        } else {
+        }else {
             console.log("adding")
             addPassword(formData);
         }
