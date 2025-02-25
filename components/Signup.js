@@ -15,10 +15,10 @@ export default function Signup() {
             return;
         }
         try {
-            await createUserWithEmailAndPassword(auth, email, password);
-            console.log("User signed up");
+            setEmail('');
+            setPassword('');
         } catch (err) {
-            setError("Failed to sign up");
+            setError(err);
           }
     };
 

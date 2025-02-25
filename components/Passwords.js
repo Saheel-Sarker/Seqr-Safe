@@ -1,12 +1,12 @@
-import React, { useMemo, useState } from 'react';
-import { usePasswords } from '@/contexts/PasswordContext';
+import React, { useState } from 'react';
 import AddPasswordModal from './AddPasswordModal';
-import { Plus, Search, Copy, Edit, Trash, Key, CheckCircle, Download, Eye, EyeClosed, Asterisk, EyeOffIcon } from "lucide-react";
+import { Plus, Copy, Edit, Trash, Key, CheckCircle, Download, Eye, EyeOffIcon } from "lucide-react";
 import Tooltip from './Tooltip';
 import Searchbar from './Searchbar';
+import usePasswordStore from '@/store/password.store';
 
 export default function Passwords() {
-  const {passwords, removePassword} = usePasswords();
+  const {passwords, deletePassword} = usePasswordStore();
   const [searchTerm, setSearchTerm] = useState('');
   const [editModalOpen, setEditIsModalOpen] = useState(false);
   const [addModalOpen, setAddIsModalOpen] = useState(false);
@@ -14,10 +14,9 @@ export default function Passwords() {
   const [currentVisiblePassword, setCurrentVisiblePassword] = useState(null);
   const [copied, setCopied] = useState("");
 
-  const filteredPasswords = useMemo(() => passwords.filter(p => 
-    p.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    p.username.toLowerCase().includes(searchTerm.toLowerCase())
-  ),[passwords, searchTerm]);
+  // const filteredPasswords = passwords.filter(p => 
+  //   p.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+  //   p.username.toLowerCase().includes(searchTerm.toLowerCase()));
 
   const handleCopy = (text, type) => {
     navigator.clipboard.writeText(text);
@@ -39,22 +38,22 @@ export default function Passwords() {
   }
 
   function handleVisibility(item){
-    if (item.id == currentVisiblePassword){
+    if (item._id == currentVisiblePassword){
       setCurrentVisiblePassword({})
     }else {
-      setCurrentVisiblePassword(item.id);
+      setCurrentVisiblePassword(item._id);
     }
   }
 
   function showPassword(item){
     return (  
       <div className='flex'>
-        <Tooltip message={item.id === currentVisiblePassword ? 'Show Password' : 'Hide Password'}>
+        <Tooltip message={item._id === currentVisiblePassword ? 'Show Password' : 'Hide Password'}>
           <button className="text-gray-400 hover:text-gray-200 p-1" onClick={() => handleVisibility(item)}>
-            {item.id === currentVisiblePassword ? <Eye size={16} /> : <EyeOffIcon size={16} />}
+            {item._id === currentVisiblePassword ? <Eye size={16} /> : <EyeOffIcon size={16} />}
           </button>
         </Tooltip>
-        {item.id === currentVisiblePassword ? (
+        {item._id === currentVisiblePassword ? (
           item.password.length > 15 ? (
             <Tooltip message={item.password}>
               <span>{item.password.slice(0, 15) + '...'}</span>
@@ -77,6 +76,12 @@ export default function Passwords() {
     document.body.appendChild(downloadAnchor);
     downloadAnchor.click();
     document.body.removeChild(downloadAnchor);
+  }
+
+  async function handleDelete(item){
+    const  { success, message} = await deletePassword(item._id);
+    console.log("Success:", success);
+    console.log("Message:", message);
   }
 
   function showAddModal(){
@@ -124,9 +129,9 @@ export default function Passwords() {
               </tr>
             </thead>
             <tbody>
-              {filteredPasswords.map((item, index) => (
+              {passwords.map((item, index) => (
                 <tr key={index} className="border-b border-gray-700 hover:bg-gray-850 transition rounded-lg">
-                  <td className="py-2 w-1/4">{item.title}</td>
+                  <td className="py-2 w-1/4">{item.url}</td>
                   <td className="py-2 w-1/4">{item.username}</td>
                   <td className="py-2 w-1/4">
                     {showPassword(item)}
@@ -149,7 +154,7 @@ export default function Passwords() {
                     </Tooltip>
                     {showEditModal()}
                     <Tooltip message={'Delete'}>
-                      <button className="text-red-500 hover:text-red-300 p-1" onClick={()=>removePassword(item.id)}>
+                      <button className="text-red-500 hover:text-red-300 p-1" onClick={()=>handleDelete(item)}>
                         <Trash size={16} />
                       </button>
                     </Tooltip>

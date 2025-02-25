@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { useRouter } from 'next/navigation';
 import React from 'react'
 import { useState } from 'react';
 
@@ -6,12 +7,14 @@ export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(''); // Unknown here
+    const router = useRouter();
     
     async function handleLogin(e) {
         e.preventDefault();
         try {
-            await signInWithEmailAndPassword(auth, email, password);
-            console.log("User logged in");
+            setEmail('');
+            setPassword('');
+            router.push('/');
         } catch (err) {
             setError("Invalid email or password");
         }

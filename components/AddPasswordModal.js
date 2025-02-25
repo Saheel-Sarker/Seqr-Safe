@@ -1,15 +1,15 @@
-import { usePasswords } from '@/contexts/PasswordContext';
-import React, { useEffect, useState } from 'react'
+import usePasswordStore from '@/store/password.store';
+import React, { useState } from 'react'
 
 export default function AddPasswordModal({setIsModalOpen, password, editing}) {
-    const {addPassword, editPassword} = usePasswords();
-    const [title, setTitle] = useState(password.title);
-    const [username, setUsername] = useState(password.username);
-    const [passwordText, setPasswordText] = useState(password.password);
+    const {createPassword, updatePassword} = usePasswordStore()
+    const [url, setUrl] = useState(password.url || '');
+    const [username, setUsername] = useState(password.username || '');
+    const [passwordText, setPasswordText] = useState(password.password || '');
 
     function handleChange(e){        
-        if (e.target.name == 'title') {
-            setTitle(e.target.value);
+        if (e.target.name == 'url') {
+            setUrl(e.target.value);
         }
         if (e.target.name == 'username') {
             setUsername(e.target.value);
@@ -20,22 +20,26 @@ export default function AddPasswordModal({setIsModalOpen, password, editing}) {
     };
     
 
-    function handleAdd(e){
+    async function handleAdd(e){
         e.preventDefault(); // Prevents page reload
-        const formData = {title: title, username: username, password: passwordText};
+        const newPassword = {url: url, username: username, password: passwordText};
         if (editing){
-            editPassword(formData, password.id)
+            const {success, message} = await updatePassword(newPassword, password._id)
+            console.log("Success:", success);
+            console.log("Message:", message);
         }else {
-            console.log("adding")
-            addPassword(formData);
+            const {success, message} = await createPassword(newPassword)
+            console.log("Success:", success);
+            console.log("Message:", message);
         }
         setIsModalOpen(false)
     };
     function handleCancel(){
         setIsModalOpen(false)
     };
+
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
         <div className="bg-slate-800 shadow-lg rounded-lg p-8 max-w-lg w-full">
         <h2 className="text-2xl font-semibold text-white text-center mb-4">Add new password</h2>
         <form onSubmit={handleAdd}>
@@ -44,11 +48,11 @@ export default function AddPasswordModal({setIsModalOpen, password, editing}) {
                 Site
                 </label>
                 <input
-                value={title}
+                value={url}
                 placeholder={password ? "Edit Title" :  "example.com"}
                 className="block w-full px-4 py-2 border border-gray-100 rounded-md text-white bg-slate-900"
                 onChange={handleChange}
-                name={"title"}
+                name={"url"}
 
                 required
                 />
