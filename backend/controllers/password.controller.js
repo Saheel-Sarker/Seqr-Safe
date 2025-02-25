@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
 import Password from "../models/passwords.model.js";
-import crypto from "crypto";
 
 export async function getPasswords(req, res){
     try {
         const passwords = await Password.find({});
+        console.log("Passwords fetched:", passwords);
         res.status(200).json({success:true, data: passwords});
     } catch (error) {
         console.log("error in fetching products:", error.message);
