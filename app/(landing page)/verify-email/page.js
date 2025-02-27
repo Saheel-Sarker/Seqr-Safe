@@ -1,14 +1,17 @@
+'use client'
 import React from 'react'
 import { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { useAuthStore } from "../store/authStore";
+
 import toast from "react-hot-toast";
+import { useAuthStore } from '@/store/auth.store';
+import CenterAuthItems from '@/components/CenterAuthItems';
 
 export default function page() {
 	const [code, setCode] = useState(["", "", "", "", "", ""]);
 	const inputRefs = useRef([]);
-	const navigate = useNavigate();
+	const router = useRouter();
 
 	const { error, isLoading, verifyEmail } = useAuthStore();
 
@@ -49,7 +52,7 @@ export default function page() {
 		const verificationCode = code.join("");
 		try {
 			await verifyEmail(verificationCode);
-			navigate("/");
+			router.push("/");
 			toast.success("Email verified successfully");
 		} catch (error) {
 			console.log(error);
@@ -64,6 +67,7 @@ export default function page() {
 	}, [code]);
 
 	return (
+		<CenterAuthItems>
 		<div className='max-w-md w-full bg-gray-800 bg-opacity-50 backdrop-filter backdrop-blur-xl rounded-2xl shadow-xl overflow-hidden'>
 			<motion.div
 				initial={{ opacity: 0, y: -50 }}
@@ -104,5 +108,6 @@ export default function page() {
 				</form>
 			</motion.div>
 		</div>
+		</CenterAuthItems>
 	);
 };
