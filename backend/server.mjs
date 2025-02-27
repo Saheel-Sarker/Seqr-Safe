@@ -10,6 +10,9 @@ const app = express();
 app.use(express.json()); // to  accept json data in the req.body
 
 app.use("/api/passwords", passwordRoutes);
+app.get("/", (req, res) => {
+    res.send("API is running...");
+});
 
 const PORT = process.env.PORT || 5000;
 
