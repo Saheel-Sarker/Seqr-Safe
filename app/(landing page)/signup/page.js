@@ -72,7 +72,7 @@ export default function page() {
                         <PasswordStrengthMeter password={password} />
 
                         
-                        <p className='mt-5 w-full py-3'>By signing up I agree to the <Link href={'/t&c'} className='text-pink-400'>Terms & Conditions</Link>.</p>
+                        <p className='mt-5 w-full py-2 text-sm text-gray-400'>By signing up I agree to the <Link href={'/t&c'} className='text-pink-400'>Terms & Conditions</Link>.</p>
                         <motion.button
                             className='mt-5 w-full py-3 px-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white 
                             font-bold rounded-lg shadow-lg hover:from-green-600
