@@ -17,12 +17,16 @@ export default function Header({font}) {
                 <h1 className="text-5xl font-serif">keepr</h1>
             </div>
             <div className="gap-4">
-                <button className="border border-blue-950 text-white px-6 py-3 rounded-md hover:bg-amber-500 hover:border-amber-500 hover:text-white transition-colors">  
-                    <Link href="/login">Login</Link>
+                <Link href="/login">
+                <button className="border border-blue-950 text-white px-6 py-3 rounded-md hover:bg-green-500 hover:border-green-500 hover:text-white transition-colors">  
+                    Login
                 </button>
-                <button className="bg-blue-950 text-white px-6 py-3 rounded-md ml-4 hover:bg-red-500 transition-colors">
-                    <Link href="/signup">Sign Up</Link>
+                </Link>
+                <Link href="/signup">
+                <button className="bg-blue-950 text-white px-6 py-3 rounded-md ml-4 hover:bg-blue-500 transition-colors">
+                    Sign Up
                 </button>
+                </Link>
             </div>
         </header>
     )
