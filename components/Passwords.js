@@ -14,9 +14,10 @@ export default function Passwords() {
   const [currentVisiblePassword, setCurrentVisiblePassword] = useState(null);
   const [copied, setCopied] = useState("");
 
-  // const filteredPasswords = passwords.filter(p => 
-  //   p.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-  //   p.username.toLowerCase().includes(searchTerm.toLowerCase()));
+  const filteredPasswords = passwords ? passwords.filter(p => 
+    p.url.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    p.username.toLowerCase().includes(searchTerm.toLowerCase())
+  ) : [];
 
   const handleCopy = (text, type) => {
     navigator.clipboard.writeText(text);
@@ -129,7 +130,7 @@ export default function Passwords() {
               </tr>
             </thead>
             <tbody>
-              {passwords.map((item, index) => (
+              {filteredPasswords.map((item, index) => (
                 <tr key={index} className="border-b border-gray-700 hover:bg-gray-850 transition rounded-lg">
                   <td className="py-2 w-1/4">{item.url}</td>
                   <td className="py-2 w-1/4">{item.username}</td>
