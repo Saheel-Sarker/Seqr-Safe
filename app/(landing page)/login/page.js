@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import Login from '@/components/Login'
 import Main from '@/components/Main';
 import { useState } from "react";
@@ -17,8 +17,19 @@ export default function page() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
-	const { login, isLoading, error } = useAuthStore();
+	const { login, isLoading, error, isAuthenticated, checkAuth, isCheckingAuth} = useAuthStore();
 	const router = useRouter();
+
+	useEffect(()=> {
+		if (!isCheckingAuth) {
+			if (isAuthenticated) {
+				router.push('/dashboard/passwords');
+			}
+		} else {
+			checkAuth();
+		}
+	}
+	, [isAuthenticated, isCheckingAuth, checkAuth]);
 
 	const handleLogin = async (e) => {
 		e.preventDefault();

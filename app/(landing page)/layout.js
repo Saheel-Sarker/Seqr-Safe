@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`antialiased`}>
         <Header font={poppins}></Header>
-        {children}
+          {children}
         <Footer font={poppins}></Footer>
       </body>
     </html>
