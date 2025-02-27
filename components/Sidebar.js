@@ -3,15 +3,25 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { LockOpen, Notebook, Settings, User, LogOut, CreditCard, Users } from 'lucide-react';
+import { useAuthStore } from '@/store/auth.store';
+import { useRouter } from 'next/navigation';
 
 export default function Sidebar() {
   const pathname = usePathname();
   const [showLogout, setShowLogout] = useState(false);
+  const {logout} = useAuthStore();
+  const router = useRouter();
+
+  async function handleSignout(e){
+    e.preventDefault();
+    await logout();
+    router.push('/');
+  }
 
   function logoutDisplay(){
     if (showLogout){
       return(
-        <div className="mt-3 flex items-center w-full cursor-pointer px-3 py-2 bg-red-900 rounded-md text-white hover:bg-red-700">
+        <div className="mt-3 flex items-center w-full cursor-pointer px-3 py-2 bg-red-900 rounded-md text-white hover:bg-red-700" onClick={handleSignout}>
           <LogOut className="mr-2" size={20}/>
           <span className="">Logout</span>
         </div>

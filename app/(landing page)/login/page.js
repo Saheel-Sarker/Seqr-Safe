@@ -10,6 +10,7 @@ import Input from "@/components/Input";
 import { useAuthStore } from '@/store/auth.store';
 import Link from 'next/link';
 import CenterAuthItems from '@/components/CenterAuthItems';
+import { useRouter } from 'next/navigation';
 
 
 export default function page() {
@@ -17,10 +18,12 @@ export default function page() {
 	const [password, setPassword] = useState("");
 
 	const { login, isLoading, error } = useAuthStore();
+	const router = useRouter();
 
 	const handleLogin = async (e) => {
 		e.preventDefault();
 		await login(email, password);
+		router.push('/dashboard/passwords');
 	};
 
 	return (

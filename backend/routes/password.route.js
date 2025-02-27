@@ -1,14 +1,12 @@
-import express from 'express'
+import express from 'express';
 import { createPassword, deletePassword, getPasswords, updatePassword } from '../controllers/password.controller.js';
+import { verifyToken } from '../middleware/verifyToken.js';
 
-const router = express.Router()
+const router = express.Router();
 
-router.get("/", getPasswords);
-
-router.post("/", createPassword);
-
-router.put("/:id", updatePassword);
-
-router.delete("/:id", deletePassword);
+router.get("/", verifyToken, getPasswords);
+router.post("/", verifyToken, createPassword);
+router.put("/:id", verifyToken, updatePassword);
+router.delete("/:id", verifyToken, deletePassword);
 
 export default router;

@@ -40,11 +40,15 @@ const passwordSchema = new mongoose.Schema({
         set: encrypt, 
         get: decrypt
     },
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    }
 }, {
     timestamps: true, //createdAT, updatedAT
     toJSON: { getters: true } 
-},
-);
+});
 
 const Password = mongoose.model('Password', passwordSchema);
 

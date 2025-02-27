@@ -3,7 +3,7 @@ import Password from "../models/passwords.model.js";
 
 export async function getPasswords(req, res){
     try {
-        const passwords = await Password.find({});
+        const passwords = await Password.find({ user: req.userId });
         console.log("Passwords fetched:", passwords);
         res.status(200).json({success:true, data: passwords});
     } catch (error) {
@@ -17,7 +17,7 @@ export async function createPassword(req, res){
     if(!password.url || !password.username || !password.password){
         return res.status(400).json({success: false, message: "Please provide all fields"});
     }
-    const newPassword = new Password(password)
+    const newPassword = new Password({ ...password, user: req.userId });
     try {
         await newPassword.save();
         res.status(201).json({success: true, data: newPassword});

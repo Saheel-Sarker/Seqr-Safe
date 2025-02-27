@@ -28,6 +28,7 @@ export const useAuthStore = create((set) => ({
 		set({ isLoading: true, error: null });
 		try {
 			const response = await axios.post(`${API_URL}/login`, { email, password });
+			localStorage.setItem('token', response.data.token);
 			set({
 				isAuthenticated: true,
 				user: response.data.user,
@@ -44,6 +45,7 @@ export const useAuthStore = create((set) => ({
 		set({ isLoading: true, error: null });
 		try {
 			await axios.post(`${API_URL}/logout`);
+			localStorage.removeItem('token');
 			set({ user: null, isAuthenticated: false, error: null, isLoading: false });
 		} catch (error) {
 			set({ error: "Error logging out", isLoading: false });

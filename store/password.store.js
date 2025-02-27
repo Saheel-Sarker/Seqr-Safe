@@ -8,13 +8,15 @@ const usePasswordStore = create((set) => ({
   
   // Add password
   createPassword: async (newPassword) => {
+    const token = localStorage.getItem('token');
     if (!newPassword.url || !newPassword.username || !newPassword.password){
         return {success:false, message:"Please fill in all the fields"}
     };
     const res = await fetch("/api/passwords", {
         method:"POST",
         headers:{
-            "Content-Type":"application/json"
+            "Content-Type":"application/json",
+            "Authorization": `Bearer ${token}`
         },
         body:JSON.stringify(newPassword)
     });
@@ -25,12 +27,12 @@ const usePasswordStore = create((set) => ({
   },
 
   updatePassword: async (updatedPassword, pid) => {
-    console.log(updatedPassword);
-    console.log(pid);
+    const token = localStorage.getItem('token');
     const res = await fetch(`/api/passwords/${pid}`, {
         method:"PUT",
         headers:{
-            "Content-Type":"application/json"
+            "Content-Type":"application/json",
+            "Authorization": `Bearer ${token}`
         },
         body:JSON.stringify(updatedPassword)
     });
@@ -41,15 +43,23 @@ const usePasswordStore = create((set) => ({
   },
 
   fetchPasswords: async () => {
-    const res = await fetch("/api/passwords");
+    const token = localStorage.getItem('token');
+    const res = await fetch("/api/passwords", {
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+    });
     const data = await res.json();
     set({passwords: data.data});
   },
 
   deletePassword: async (pid) => {
-    console.log(pid);
+    const token = localStorage.getItem('token');
     const res = await fetch(`/api/passwords/${pid}`, {
         method: "DELETE",
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
     });
     const data = await res.json();
     if (!data.success) return { success: false, message: data.message };
@@ -57,7 +67,7 @@ const usePasswordStore = create((set) => ({
     // update the ui immediately, without needing a refresh
     set((state) => ({ passwords: state.passwords.filter((password) => password._id !== pid) }));
     return { success: true, message: data.message };
-    },
+  },
 
 }));
 
