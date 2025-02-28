@@ -7,7 +7,7 @@ import { useState } from "react";
 
 import Input from "@/components/Input";
 import { ArrowLeft, Loader, Mail } from "lucide-react";
-import { Link } from "next/link";
+import Link from "next/link";
 import { useAuthStore } from '@/store/auth.store';
 import CenterAuthItems from '@/components/CenterAuthItems';
 
@@ -76,7 +76,7 @@ export default function page() {
 			</div>
 
 			<div className='px-8 py-4 bg-gray-900 bg-opacity-50 flex justify-center'>
-				<Link to={"/login"} className='text-sm text-green-400 hover:underline flex items-center'>
+				<Link href={"/login"} className='text-sm text-green-400 hover:underline flex items-center'>
 					<ArrowLeft className='h-4 w-4 mr-2' /> Back to Login
 				</Link>
 			</div>

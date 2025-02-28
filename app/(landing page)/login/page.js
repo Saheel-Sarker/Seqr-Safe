@@ -11,6 +11,7 @@ import { useAuthStore } from '@/store/auth.store';
 import Link from 'next/link';
 import CenterAuthItems from '@/components/CenterAuthItems';
 import { useRouter } from 'next/navigation';
+import {toast} from "react-hot-toast";
 
 
 export default function page() {
@@ -33,8 +34,13 @@ export default function page() {
 
 	const handleLogin = async (e) => {
 		e.preventDefault();
-		await login(email, password);
-		router.push('/dashboard/passwords');
+		try {
+			await login(email, password);
+			router.push('/dashboard/passwords');
+		} catch (err) {
+			
+			
+		}
 	};
 
 	return (
@@ -57,6 +63,7 @@ export default function page() {
 						placeholder='Email Address'
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
+						required
 					/>
 
 					<Input
@@ -65,6 +72,7 @@ export default function page() {
 						placeholder='Password'
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
+						required
 					/>
 
 					<div className='flex items-center mb-6'>
@@ -72,7 +80,7 @@ export default function page() {
 							Forgot password?
 						</Link>
 					</div>
-					{error && <p className='text-red-500 font-semibold mb-2'>{error}</p>}
+					{error && <p className='text-red-500 mb-2 text-sm'>{error}</p>}
 
 					<motion.button
 						whileHover={{ scale: 1.02 }}

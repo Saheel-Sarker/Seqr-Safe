@@ -9,17 +9,18 @@ import { useAuthStore } from "@/store/auth.store";
 
 // export const metadata = {
 //     title: "Dashboard",
-//     description: "Keeping your secrets safe",
+//     description: "Keeping your secrets safe, always.",
 //   };
 
   export default function RootLayout({ children }) {
     const {fetchPasswords} = usePasswordStore();
 
     const router = useRouter();
-    const { isAuthenticated, isCheckingAuth, checkAuth } = useAuthStore();
+    const { isAuthenticated, isCheckingAuth, checkAuth, user } = useAuthStore();
     useEffect(() => {
       if (!isCheckingAuth) {
         if (isAuthenticated) {
+          console.log(user);
           fetchPasswords();
         } else {
           router.push('/');

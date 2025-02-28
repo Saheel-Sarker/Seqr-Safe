@@ -5,11 +5,15 @@ import { usePathname } from 'next/navigation';
 import { LockOpen, Notebook, Settings, User, LogOut, CreditCard, Users } from 'lucide-react';
 import { useAuthStore } from '@/store/auth.store';
 import { useRouter } from 'next/navigation';
+import { Tooltip } from 'react-tooltip';
+import { motion } from 'framer-motion';
 
 export default function Sidebar() {
   const pathname = usePathname();
   const [showLogout, setShowLogout] = useState(false);
-  const {logout} = useAuthStore();
+  const {logout, user} = useAuthStore();
+  const name = user?.name;
+  const initial = name ? name.charAt(0).toUpperCase() : '';
   const router = useRouter();
 
   async function handleSignout(e){
@@ -17,16 +21,23 @@ export default function Sidebar() {
     await logout();
     router.push('/');
   }
-
-  function logoutDisplay(){
-    if (showLogout){
-      return(
-        <div className="mt-3 flex items-center w-full cursor-pointer px-3 py-2 bg-red-900 rounded-md text-white hover:bg-red-700" onClick={handleSignout}>
-          <LogOut className="mr-2" size={20}/>
-          <span className="">Logout</span>
-        </div>
-      )
-    }
+  function logoutDisplay() {
+    return showLogout && (
+      <div>
+      <Tooltip id="logout-tooltip" place="top" effect="solid" />
+      <motion.div
+      data-tooltip-id="logout-tooltip"
+      data-tooltip-content='Logout'
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+      className="w-10 h-10 bg-green-800 rounded-full flex items-center justify-center cursor-pointer hover:bg-green-600 mb-4"
+      onClick={handleSignout}
+      >
+      <LogOut className="w-5 h-5 text-white" />
+      </motion.div>
+      </div>
+    );
   }
 
   return (
@@ -60,22 +71,21 @@ export default function Sidebar() {
           </li>
         ))}
       </ul>
-
-      <div className='mt-auto pb-6 w-full pt-10 px-4'>
-        <div className='flex items-center justify-between'>
-
-          <div
-            className="w-10 h-10 bg-red-950 rounded-full flex items-center justify-center cursor-pointer hover:bg-red-900"
-            onClick={() => setShowLogout(!showLogout)}
-          >
-            <User className="w-5 h-5 text-white" />
-          </div>
-
-          <Link href='/dashboard/settings' className="w-10 h-10 bg-red-950 rounded-full flex items-center justify-center hover:bg-red-900">
-            <Settings className="w-5 h-5 text-white" />
-          </Link>
-        </div>
+ 
+      <div className='mt-auto pb-16 w-full pt-10 px-8 space-x-3'>
         {logoutDisplay()}
+        <div className='flex items-center'>
+          <div
+            className="w-10 h-10 bg-green-800 rounded-full flex items-center justify-center cursor-pointer hover:bg-green-600"
+            onClick={() => setShowLogout(!showLogout)}
+            data-tooltip-id="user-tooltip"
+            data-tooltip-content={name}
+          >
+            <span className="text-white font-bold">{initial}</span>
+          </div>
+          <span className="ml-3 text-white">{name}</span>
+          <Tooltip id="user-tooltip" place="top" effect="solid" />
+        </div>
       </div>
     </nav>
   );

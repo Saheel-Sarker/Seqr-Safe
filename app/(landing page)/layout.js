@@ -10,7 +10,7 @@ const poppins = Poppins({
 
 export const metadata = {
   title: "Keepr",
-  description: "Keeping  your secrets safe",
+  description: "Keeping your secrets safe, always.",
 };
 
 export default function RootLayout({ children }) {
