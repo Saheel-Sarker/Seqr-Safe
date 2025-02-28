@@ -104,8 +104,7 @@ export default function Passwords() {
 
   return (
     <div className="flex h-screen bg-gray-900 text-gray-100">
-
-      <main className="flex-1 p-6">
+      <main className="flex-1 p-6 overflow-y-auto">
         <div className="flex justify-between items-center mb-6">
           <Searchbar searchTerm={searchTerm} handleSearch={handleSearch}></Searchbar>
           <div className="flex space-x-3 ml-4">
@@ -126,7 +125,6 @@ export default function Passwords() {
                 <th className="pb-2 w-1/4">Username</th>
                 <th className="pb-2 w-1/4">Password</th>
                 <th className="pb-2 w-1/4">Actions</th>
-
               </tr>
             </thead>
             <tbody>
