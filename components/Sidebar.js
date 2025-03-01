@@ -2,13 +2,13 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { LockOpen, Notebook, Settings, User, LogOut, CreditCard, Users } from 'lucide-react';
+import { LockOpen, Notebook, Settings, User, LogOut, CreditCard, Users, Crown } from 'lucide-react';
 import { useAuthStore } from '@/store/auth.store';
 import { useRouter } from 'next/navigation';
 import { Tooltip } from 'react-tooltip';
 import { motion } from 'framer-motion';
 
-export default function Sidebar() {
+export default function Sidebar({showPricing, setShowPricing}) {
   const pathname = usePathname();
   const [showLogout, setShowLogout] = useState(false);
   const {logout, user} = useAuthStore();
@@ -79,13 +79,23 @@ export default function Sidebar() {
             className="w-10 h-10 bg-green-800 rounded-full flex items-center justify-center cursor-pointer hover:bg-green-600"
             onClick={() => setShowLogout(!showLogout)}
             data-tooltip-id="user-tooltip"
-            data-tooltip-content={name}
-          >
-            <span className="text-white font-bold">{initial}</span>
+            data-tooltip-content={name}>
+            <span className="text-white font-semibold text-xl">{initial}</span>
           </div>
           <span className="ml-3 text-white">{name}</span>
           <Tooltip id="user-tooltip" place="top" effect="solid" />
         </div>
+        <div className='flex items-center mt-4'>
+          <div
+            className="w-10 h-10 bg-violet-800 rounded-full flex items-center justify-center cursor-pointer hover:bg-violet-600"
+            onClick={() => setShowPricing(!showPricing)}
+            data-tooltip-id="user-tooltip"
+            data-tooltip-content={'upgrade plan'}>
+            <Crown className="w-5 h-5"></Crown>
+          </div>
+          <Tooltip id="user-tooltip" place="top" effect="solid" />
+        </div>
+        
       </div>
     </nav>
   );

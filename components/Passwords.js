@@ -103,7 +103,7 @@ export default function Passwords() {
   }
 
   return (
-    <div className="flex h-screen bg-gray-900 text-gray-100">
+    <div className="flex h-screen bg-slate-900 text-gray-100">
       <main className="flex-1 p-6 overflow-y-auto">
         <div className="flex justify-between items-center mb-6">
           <Searchbar searchTerm={searchTerm} handleSearch={handleSearch}></Searchbar>
