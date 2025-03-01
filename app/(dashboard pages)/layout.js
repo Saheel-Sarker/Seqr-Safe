@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import WithAuth from "@/components/WithAuth";
 import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/store/auth.store";
+import WithSubscription from "@/components/WithSubscription";
 
 // export const metadata = {
 //     title: "Dashboard",
@@ -39,7 +40,9 @@ import { useAuthStore } from "@/store/auth.store";
           <div className="w-[1px] bg-white opacity-50" ></div>
           <div className='flex-1'>
             <WithAuth>
-              {children}
+              <WithSubscription>
+                {children}
+              </WithSubscription>
             </WithAuth>
           </div>
           
