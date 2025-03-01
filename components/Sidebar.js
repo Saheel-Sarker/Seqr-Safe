@@ -21,25 +21,6 @@ export default function Sidebar({showPricing, setShowPricing}) {
     await logout();
     router.push('/');
   }
-  function logoutDisplay() {
-    return showLogout && (
-      <div>
-      {/* <Tooltip id="logout-tooltip" place="top" effect="solid" /> */}
-      <motion.div
-      data-tooltip-id="logout-tooltip"
-      data-tooltip-content='Logout'
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
-      className="w-30 h-10 bg-green-800 rounded-full flex items-center justify-center cursor-pointer hover:bg-green-600 mb-4"
-      onClick={handleSignout}
-      >
-      <LogOut className="w-5 h-5 text-white mr-3" />
-      <span className="">Logout</span>
-      </motion.div>
-      </div>
-    );
-  }
 
   return (
     <nav className='px-6 bg-gray-950 text-white w-64 h-screen flex flex-col items-start shadow-lg'>
@@ -73,30 +54,46 @@ export default function Sidebar({showPricing, setShowPricing}) {
         ))}
       </ul>
  
-      <div className='mt-auto pb-16 w-full pt-10 px-8'>
-        {logoutDisplay()}
-        <div className='flex items-center'>
-          <div
-            className="w-10 h-10 bg-green-800 rounded-full flex items-center justify-center cursor-pointer hover:bg-green-600"
-            onClick={() => setShowLogout(!showLogout)}
-            data-tooltip-id="user-tooltip"
-            data-tooltip-content={'Click to Logout'}>
-            <span className="text-white font-semibold text-xl">{initial}</span>
+      <div className='mt-auto pb-20 w-full'>
+        <div className='flex justify-around'>
+          <div className='flex items-center'>
+            <div
+              className="w-10 h-10 bg-green-800 rounded-full flex items-center justify-center cursor-pointer hover:bg-green-600"
+              onClick={() => setShowLogout(!showLogout)}
+              data-tooltip-id="user-tooltip"
+              data-tooltip-content={'Click to Logout'}>
+              <span className="text-white text-xl">{initial}</span>
+            </div>
+            <Tooltip id="user-tooltip" place="top" effect="solid" />
           </div>
-          <span className="ml-3 text-white">{name}</span>
-          <Tooltip id="user-tooltip" place="top" effect="solid" />
-        </div>
-        <div className='flex items-center mt-4'>
-          <div
-            className={`w-10 h-10 rounded-full flex items-center justify-center cursor-pointer ${!showPricing ? 'bg-violet-800 hover:bg-violet-600' : 'bg-pink-600 hover:bg-pink-800'}`}
-            onClick={() => setShowPricing(!showPricing)}
-            data-tooltip-id="user-tooltip"
-            data-tooltip-content={ !showPricing ? 'Upgrade' : 'Show Content'}>
-            <Crown className="w-5 h-5"></Crown>
+          <div className='flex items-center'>
+            <div
+              className={`w-10 h-10 rounded-full flex items-center justify-center cursor-pointer ${!showPricing ? 'bg-violet-800 hover:bg-violet-600' : 'bg-pink-600 hover:bg-pink-800'}`}
+              onClick={() => setShowPricing(!showPricing)}
+              data-tooltip-id="user-tooltip"
+              data-tooltip-content={ !showPricing ? 'Upgrade' : 'Show Content'}>
+              <Crown className="w-5 h-5"></Crown>
+            </div>
+            <Tooltip id="user-tooltip" place="top" effect="solid" />
           </div>
-          <Tooltip id="user-tooltip" place="top" effect="solid" />
         </div>
-        
+        {showLogout && (
+          <div>
+          {/* <Tooltip id="logout-tooltip" place="top" effect="solid" /> */}
+          <motion.div
+          data-tooltip-id="logout-tooltip"
+          data-tooltip-content='Logout'
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+          className="h-10 bg-green-800 rounded-full flex items-center justify-center cursor-pointer hover:bg-green-600"
+          onClick={handleSignout}
+          >
+          <LogOut className="w-5 h-5 text-white mr-3" />
+          <span className="">Logout</span>
+          </motion.div>
+          </div>
+           )}
       </div>
     </nav>
   );

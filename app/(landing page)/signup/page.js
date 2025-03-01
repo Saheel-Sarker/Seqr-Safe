@@ -50,7 +50,7 @@ export default function page() {
                         <Input
                             icon={User}
                             type='text'
-                            placeholder='Username'
+                            placeholder='Full Name'
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                         />
