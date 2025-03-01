@@ -13,10 +13,13 @@
   "dependencies": {
     "@auth0/nextjs-auth0": "^4.0.2",
     "@headlessui/react": "^2.2.0",
+    "@stripe/react-stripe-js": "^3.1.1",
+    "@stripe/stripe-js": "^5.7.0",
     "aos": "^2.3.4",
     "axios": "^1.8.1",
     "bcrypt": "^5.1.1",
     "bcryptjs": "^3.0.2",
+    "body-parser": "^1.20.3",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
@@ -31,6 +34,7 @@
     "react-dom": "^19.0.0",
     "react-hot-toast": "^2.5.2",
     "react-tooltip": "^5.28.0",
+    "stripe": "^17.7.0",
     "zustand": "^5.0.3"
   },
   "devDependencies": {

@@ -1,7 +1,26 @@
 'use client'
 import React, { useState } from 'react'
+import Link from 'next/link';
+import { get } from 'http';
+import { Target } from 'lucide-react';
+import { useAuthStore } from '@/store/auth.store';
 
-export default function Pricing() {
+export const plans = [
+  {
+      link: 'https://buy.stripe.com/test_28o6qp1Nn3QU4F2fYY',
+      priceId: "price_1QxRoRLtgikLSfHYNF5JjLmW",
+      duration: '/month',
+  },
+  {
+      link: 'https://buy.stripe.com/test_28o2a9fEdevy4F26oq',
+      priceId: "price_1QxRlPLtgikLSfHYgzR9bHzE",
+  },
+
+]
+
+export default function Pricing({redirectToPlans}) {
+    const { user } = useAuthStore();
+    const customerPortalLink = 'https://billing.stripe.com/p/login/test_28ocQ32DW0XIbio7ss';
     const blurbs = [
         {
             title: "Save unlimited passwords",
@@ -20,6 +39,21 @@ export default function Pricing() {
           }, 
     ];
     const [billMonthly, setBillMonthly] = useState(true);
+
+    function getPlanLink() {
+      if (user?.hasAccess) {
+        return customerPortalLink + '?prefilled_email=' + user?.email;
+      } else if (redirectToPlans) {
+        if (billMonthly) {
+            return plans[0].link + '?prefilled_email=' + user?.email;
+        } else {
+            return plans[1].link + '?prefilled_email=' + user?.email;
+        }
+      } else {
+        return '/signup';
+      }
+    }
+    
 
   return (
     <section id="pricing" className="py-24 bg-gradient-to-r from-violet-800 via-violet-950 to-indigo-950 ">
@@ -72,13 +106,14 @@ export default function Pricing() {
                         ))}
                         </ul>
 
-                        <a 
-                          href="/signup" 
+                        <Link 
+                          href={getPlanLink()} 
+                          target={redirectToPlans ? "_blank" : null}
                           className="py-2.5 w-[calc(100%-10px)] border bg-gradient-to-r from-orange-600 to-violet-600 border-violet-700 shadow-sm rounded-lg transition-all duration-500 text-base text-white font-semibold text-center mx-auto block hover:bg-green-700 hover:border-green-700 hover:bg-none"
                           style={{ margin: '0 auto', maxWidth: 'calc(100% - 10px)' }}
                         >
-                          Purchase Plan!
-                        </a>
+                          {user?.hasAccess ? 'Manage Subscription' : 'Purchase Plan!'}
+                        </Link>
 
                     </div> 
             </div>

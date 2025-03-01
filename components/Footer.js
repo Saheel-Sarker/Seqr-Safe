@@ -8,26 +8,26 @@ export default function Footer({font}) {
 <footer className={` rounded-lg m-4`}>
     <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
         <div className="sm:flex sm:items-center sm:justify-between">
-            <a href="/" className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+            <Link href="/" className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
                 {/* <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" /> */}
                 <span className={`self-center text-2xl whitespace-nowrap dark:text-white ${font.className}`}>Keepr</span>
-            </a>
+            </Link>
             <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
                 <li>
-                    <a href="contact" className="hover:underline me-4 md:me-6">Contact us!</a>
+                    <Link href="contact" className="hover:underline me-4 md:me-6">Contact us!</Link>
                 </li>
                 <li>
-                    <a href="faq" className="hover:underline me-4 md:me-6">Frequently asked questions
-                    </a>
+                    <Link href="faq" className="hover:underline me-4 md:me-6">Frequently asked questions
+                    </Link>
                 </li>
                 <li>
-                    <a href="signup" className="hover:underline me-4 md:me-6">
-                    Sign up</a>
+                    <Link href="signup" className="hover:underline me-4 md:me-6">
+                    Sign up</Link>
                 </li>
             </ul>
         </div>
         <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-        <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="/" className="hover:underline">Keepr™</a>. All Rights Reserved.</span>
+        <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <Link href="/" className="hover:underline">Keepr™</Link>. All Rights Reserved.</span>
     </div>
 </footer>
 

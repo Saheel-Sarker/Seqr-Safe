@@ -72,7 +72,7 @@ export default function Sidebar() {
         ))}
       </ul>
  
-      <div className='mt-auto pb-16 w-full pt-10 px-8 space-x-3'>
+      <div className='mt-auto pb-16 w-full pt-10 px-8'>
         {logoutDisplay()}
         <div className='flex items-center'>
           <div
