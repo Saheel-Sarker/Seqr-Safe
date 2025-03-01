@@ -24,17 +24,18 @@ export default function Sidebar({showPricing, setShowPricing}) {
   function logoutDisplay() {
     return showLogout && (
       <div>
-      <Tooltip id="logout-tooltip" place="top" effect="solid" />
+      {/* <Tooltip id="logout-tooltip" place="top" effect="solid" /> */}
       <motion.div
       data-tooltip-id="logout-tooltip"
       data-tooltip-content='Logout'
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className="w-10 h-10 bg-green-800 rounded-full flex items-center justify-center cursor-pointer hover:bg-green-600 mb-4"
+      className="w-30 h-10 bg-green-800 rounded-full flex items-center justify-center cursor-pointer hover:bg-green-600 mb-4"
       onClick={handleSignout}
       >
-      <LogOut className="w-5 h-5 text-white" />
+      <LogOut className="w-5 h-5 text-white mr-3" />
+      <span className="">Logout</span>
       </motion.div>
       </div>
     );
@@ -79,7 +80,7 @@ export default function Sidebar({showPricing, setShowPricing}) {
             className="w-10 h-10 bg-green-800 rounded-full flex items-center justify-center cursor-pointer hover:bg-green-600"
             onClick={() => setShowLogout(!showLogout)}
             data-tooltip-id="user-tooltip"
-            data-tooltip-content={name}>
+            data-tooltip-content={'Click to Logout'}>
             <span className="text-white font-semibold text-xl">{initial}</span>
           </div>
           <span className="ml-3 text-white">{name}</span>
@@ -87,10 +88,10 @@ export default function Sidebar({showPricing, setShowPricing}) {
         </div>
         <div className='flex items-center mt-4'>
           <div
-            className="w-10 h-10 bg-violet-800 rounded-full flex items-center justify-center cursor-pointer hover:bg-violet-600"
+            className={`w-10 h-10 rounded-full flex items-center justify-center cursor-pointer ${!showPricing ? 'bg-violet-800 hover:bg-violet-600' : 'bg-pink-600 hover:bg-pink-800'}`}
             onClick={() => setShowPricing(!showPricing)}
             data-tooltip-id="user-tooltip"
-            data-tooltip-content={'upgrade plan'}>
+            data-tooltip-content={ !showPricing ? 'Upgrade' : 'Show Content'}>
             <Crown className="w-5 h-5"></Crown>
           </div>
           <Tooltip id="user-tooltip" place="top" effect="solid" />
