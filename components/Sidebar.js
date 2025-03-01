@@ -54,7 +54,7 @@ export default function Sidebar({showPricing, setShowPricing}) {
         ))}
       </ul>
  
-      <div className='mt-auto pb-20 w-full'>
+      <div className='mt-auto pb-32 w-full relative'>
         <div className='flex justify-around'>
           <div className='flex items-center'>
             <div
@@ -78,21 +78,18 @@ export default function Sidebar({showPricing, setShowPricing}) {
           </div>
         </div>
         {showLogout && (
-          <div>
-          {/* <Tooltip id="logout-tooltip" place="top" effect="solid" /> */}
           <motion.div
           data-tooltip-id="logout-tooltip"
           data-tooltip-content='Logout'
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="h-10 bg-green-800 rounded-full flex items-center justify-center cursor-pointer hover:bg-green-600"
+          className="mt-4 absolute mx-auto w-full h-10 bg-green-800 rounded-lg flex items-center justify-center cursor-pointer hover:bg-green-600"
           onClick={handleSignout}
           >
           <LogOut className="w-5 h-5 text-white mr-3" />
           <span className="">Logout</span>
           </motion.div>
-          </div>
            )}
       </div>
     </nav>
