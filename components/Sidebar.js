@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { LockOpen, Notebook, Settings, User, LogOut, CreditCard, Users, Crown } from 'lucide-react';
+import { LockOpen, Notebook, Settings, User, LogOut, CreditCard, Users, Crown, Settings2 } from 'lucide-react';
 import { useAuthStore } from '@/store/auth.store';
 import { useRouter } from 'next/navigation';
 import { Tooltip } from 'react-tooltip';
@@ -61,8 +61,18 @@ export default function Sidebar({showPricing, setShowPricing}) {
               className="w-10 h-10 bg-green-800 rounded-full flex items-center justify-center cursor-pointer hover:bg-green-600"
               onClick={() => setShowLogout(!showLogout)}
               data-tooltip-id="user-tooltip"
-              data-tooltip-content={'Click to Logout'}>
+              data-tooltip-content={'Logout Here'}>
               <span className="text-white text-xl">{initial}</span>
+            </div>
+            <Tooltip id="user-tooltip" place="top" effect="solid" />
+          </div>
+          <div className='flex items-center'>
+            <div
+              className='w-10 h-10 rounded-full flex items-center justify-center cursor-pointer bg-blue-800 hover:bg-blue-600'
+              // onClick={}
+              data-tooltip-id="user-tooltip"
+              data-tooltip-content={'Settings'}>
+              <Settings className="w-5 h-5"></Settings>
             </div>
             <Tooltip id="user-tooltip" place="top" effect="solid" />
           </div>
@@ -77,19 +87,37 @@ export default function Sidebar({showPricing, setShowPricing}) {
             <Tooltip id="user-tooltip" place="top" effect="solid" />
           </div>
         </div>
+        
         {showLogout && (
-          <motion.div
-          data-tooltip-id="logout-tooltip"
-          data-tooltip-content='Logout'
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
-          className="mt-4 absolute mx-auto w-full h-10 bg-green-800 rounded-lg flex items-center justify-center cursor-pointer hover:bg-green-600"
-          onClick={handleSignout}
-          >
-          <LogOut className="w-5 h-5 text-white mr-3" />
-          <span className="">Logout</span>
-          </motion.div>
+          <div className='w-full flex justify-center items-center'>
+            <motion.div
+            data-tooltip-id="logout-tooltip"
+            data-tooltip-content='Logout'
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            className="w-48 mt-14 absolute h-8 bg-green-800 rounded-md flex items-center justify-center cursor-pointer hover:bg-green-600"
+            onClick={handleSignout}
+            >
+            <LogOut className="w-5 h-5 text-white mr-3" />
+            <span className="">Logout</span>
+            </motion.div>
+          </div>
+//           // <div className="w-full flex justify-center items-center mt-4">
+//   {/* <motion.div
+//     data-tooltip-id="logout-tooltip"
+//     data-tooltip-content="Logout"
+//     initial={{ opacity: 0, y: -10 }}
+//     animate={{ opacity: 1, y: 0 }}
+//     transition={{ duration: 0.3 }}
+//     className="w-40 h-10 bg-green-800 rounded-lg flex items-center justify-center cursor-pointer hover:bg-green-600"
+//     onClick={handleSignout}
+//   >
+//     <LogOut className="w-5 h-5 text-white mr-3" />
+//     <span>Logout</span>
+//   </motion.div> */}
+// </div>
+
            )}
       </div>
     </nav>
