@@ -12,13 +12,6 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Enable CORS for requests from http://localhost:3000
-app.use(cors({
-  origin: process.env.FRONTEND_URL,
-  credentials: true
-}));
-
-// app.use(express.json()); // to accept json data in the req.body
 app.use(cookieParser()); // allows us to parse incoming cookies
 
 // Routes
