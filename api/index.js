@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 5000;
 
 // Enable CORS for requests from http://localhost:3000
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: process.env.FRONTEND_URL,
   credentials: true
 }));
 
@@ -31,3 +31,4 @@ app.listen(PORT, () => {
   console.log(`Server started at http://localhost:${PORT}`);
 });
 
+export default app;
