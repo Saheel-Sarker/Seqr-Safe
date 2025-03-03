@@ -3,7 +3,7 @@ import React from 'react'
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-import { useNavigate, useParams } from "react-router-dom";
+import { useRouter, useParams } from "next/navigation";
 import Input from "@/components/Input";
 import { Lock } from "lucide-react";
 import toast from "react-hot-toast";
@@ -16,7 +16,7 @@ export default function page() {
 	const { resetPassword, error, isLoading, message } = useAuthStore();
 
 	const { token } = useParams();
-	const navigate = useNavigate();
+	const router = useRouter();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -30,7 +30,7 @@ export default function page() {
 
 			toast.success("Password reset successfully, redirecting to login page...");
 			setTimeout(() => {
-				navigate("/login");
+				router.push("/login");
 			}, 2000);
 		} catch (error) {
 			console.error(error);
