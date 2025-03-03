@@ -4,7 +4,7 @@ const nextConfig = {
         return [
           {
             source: '/api/:path*',
-            destination: 'http://localhost:5000/api/:path*', // your backend server URL
+            destination: 'https://keepr-qkrl.onrender.com/api/:path*', // your backend server URL
           },
         ];
       },
