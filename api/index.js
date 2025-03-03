@@ -21,13 +21,6 @@ app.use("/api/passwords", express.json(), passwordRoutes);
 app.use("/api/auth", express.json(), authRoutes);
 app.use("/api/webhook", express.raw({ type: "application/json" }), stripeRoutes);
 
-if (process.env.NODE_ENV === "production"){
-  app.use(express.static(path.join(__dirname, "/dist")));
-  app.get("*", (req,res) => {
-    res.sendFile(path.resolve(__dirname,"dist","index.html"));
-  });
-}
-
 app.listen(PORT, () => {
   connectDB();
   console.log(`Server started at http://localhost:${PORT}`);
