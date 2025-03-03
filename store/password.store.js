@@ -1,5 +1,7 @@
 import { create } from 'zustand';
 
+const API_URL = "/api/passwords";
+
 // Create the Zustand store
 const usePasswordStore = create((set) => ({
   passwords: [],
@@ -12,7 +14,7 @@ const usePasswordStore = create((set) => ({
     if (!newPassword.url || !newPassword.username || !newPassword.password){
         return {success:false, message:"Please fill in all the fields"}
     };
-    const res = await fetch("/api/passwords", {
+    const res = await fetch(`${API_URL}`, {
         method:"POST",
         headers:{
             "Content-Type":"application/json",
@@ -28,7 +30,7 @@ const usePasswordStore = create((set) => ({
 
   updatePassword: async (updatedPassword, pid) => {
     const token = localStorage.getItem('token');
-    const res = await fetch(`/api/passwords/${pid}`, {
+    const res = await fetch(`${API_URL}/${pid}`, {
         method:"PUT",
         headers:{
             "Content-Type":"application/json",
@@ -44,7 +46,7 @@ const usePasswordStore = create((set) => ({
 
   fetchPasswords: async () => {
     const token = localStorage.getItem('token');
-    const res = await fetch("/api/passwords", {
+    const res = await fetch(`${API_URL}`, {
         headers: {
             "Authorization": `Bearer ${token}`
         }
@@ -55,7 +57,7 @@ const usePasswordStore = create((set) => ({
 
   deletePassword: async (pid) => {
     const token = localStorage.getItem('token');
-    const res = await fetch(`/api/passwords/${pid}`, {
+    const res = await fetch(`${API_URL}/${pid}`, {
         method: "DELETE",
         headers: {
             "Authorization": `Bearer ${token}`
