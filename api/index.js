@@ -20,6 +20,7 @@ app.use("/api/auth", express.json(), authRoutes);
 app.use("/api/webhook", express.raw({ type: "application/json" }), stripeRoutes);
 
 if (process.env.MODE_ENV === "production"){
+  console.log("starting up frontend service");
   app.use(express.static(path.join(__dirname, '.next')));
   app.all('*', async (req, res) => {
     await nextApp.prepare();
