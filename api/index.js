@@ -19,7 +19,7 @@ app.use("/api/passwords", express.json(), passwordRoutes);
 app.use("/api/auth", express.json(), authRoutes);
 app.use("/api/webhook", express.raw({ type: "application/json" }), stripeRoutes);
 
-if (process.env.NODE_ENV === "production"){
+if (process.env.MODE_ENV === "production"){
   app.use(express.static(path.join(__dirname, '.next')));
   app.all('*', async (req, res) => {
     await nextApp.prepare();
