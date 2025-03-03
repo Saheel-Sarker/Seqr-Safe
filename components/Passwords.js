@@ -108,11 +108,11 @@ export default function Passwords() {
         <div className="flex justify-between items-center mb-6">
           <Searchbar searchTerm={searchTerm} handleSearch={handleSearch}></Searchbar>
           <div className="flex space-x-3 ml-4">
-            <button onClick={handleAdd} className="flex items-center px-4 py-2 bg-green-900 hover:bg-green-700 rounded-lg transition">
+            <button onClick={handleAdd} className="flex items-center px-4 py-2 bg-green-800 hover:bg-green-600 rounded-lg transition">
               <Plus size={18} className="mr-2" /> Add Password
             </button>
             {showAddModal()}
-            <button onClick={handleExport} className="flex items-center px-4 py-2 bg-blue-900 hover:bg-blue-800 rounded-lg transition">
+            <button onClick={handleExport} className="flex items-center px-4 py-2 bg-blue-800 hover:bg-blue-600 rounded-lg transition">
               <Download size={18} className="mr-2" /> Export
             </button>
           </div>

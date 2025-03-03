@@ -16,14 +16,14 @@ export default function Header({font}) {
                 <img src="/GuyPasscode.svg" alt="hacker illustration" className="h-14 align-top mr-3" />
                 <h1 className="text-5xl font-serif">keepr</h1>
             </div>
-            <div className="gap-4">
+            <div className="flex ">
                 <Link href="/login">
-                <button className="border border-blue-950 text-white px-6 py-3 rounded-md hover:bg-green-500 hover:border-green-500 hover:text-white transition-colors">  
+                <button className="min-w-24 bg-blue-800 text-white py-3 rounded-md hover:bg-blue-600  hover:text-white transition-colors">  
                     Login
                 </button>
                 </Link>
                 <Link href="/signup">
-                <button className="bg-blue-950 text-white px-6 py-3 rounded-md ml-4 hover:bg-blue-500 transition-colors">
+                <button className="min-w-24 bg-green-800 text-white py-3 rounded-md ml-4 hover:bg-green-600 transition-colors">
                     Sign Up
                 </button>
                 </Link>
