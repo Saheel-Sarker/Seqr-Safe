@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "backend": "nodemon api/index.js",
-    "serve": "node api/index.js"
+    "backend": "nodemon backend/server.mjs"
   },
   "type": "module",
   "dependencies": {
