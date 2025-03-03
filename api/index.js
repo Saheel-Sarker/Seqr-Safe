@@ -20,7 +20,7 @@ app.use(cookieParser()); // allows us to parse incoming cookies
 app.use("/api/passwords", express.json(), passwordRoutes);
 app.use("/api/auth", express.json(), authRoutes);
 app.use("/api/webhook", express.raw({ type: "application/json" }), stripeRoutes);
-
+ 
 app.listen(PORT, () => {
   connectDB();
   console.log(`Server started at http://localhost:${PORT}`);
