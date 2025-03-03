@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-const API_URL = process.env.NEXT_PUBLIC_BACKEND_URL + "/api/passwords";
+const API_URL = "/api/passwords";
 
 // Create the Zustand store
 const usePasswordStore = create((set) => ({
