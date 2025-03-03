@@ -23,10 +23,17 @@ const allowedOrigins = [
 ];
 
 app.use(cookieParser()); // allows us to parse incoming cookies
-app.use(cors({
-  origin: allowedOrigins, // Replace with your actual frontend URL
-  credentials: true
-}));
+app.use(
+  cors({
+    origin: [
+      `http://localhost:${frontend_port}`,
+      process.env.FRONTEND_VERCEL_URL,
+      process.env.FRONTEND_RENDER_URL,
+    ].filter(Boolean), // Remove undefined values
+    credentials: true,
+  })
+);
+
 
 // Routes
 app.use("/api/passwords", express.json(), passwordRoutes);
