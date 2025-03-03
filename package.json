@@ -32,8 +32,7 @@
     "react-hot-toast": "^2.5.2",
     "react-tooltip": "^5.28.0",
     "stripe": "^17.7.0",
-    "zustand": "^5.0.3",
-    "tailwindcss": "^3.4.17"
+    "zustand": "^5.0.3"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
