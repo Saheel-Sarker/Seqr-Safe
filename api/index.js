@@ -19,6 +19,7 @@ app.use("/api/passwords", express.json(), passwordRoutes);
 app.use("/api/auth", express.json(), authRoutes);
 app.use("/api/webhook", express.raw({ type: "application/json" }), stripeRoutes);
 
+console.log("going to start up frontend service");
 if (process.env.MODE_ENV === "production"){
   console.log("starting up frontend service");
   app.use(express.static(path.join(__dirname, '.next')));
