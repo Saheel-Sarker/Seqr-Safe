@@ -1,3 +1,4 @@
+import AppScreenshot from "@/components/AppScreenshot";
 import Hero from "@/components/Hero";
 import Main from "@/components/Main";
 import Pricing from "@/components/Pricing";
@@ -9,7 +10,7 @@ export default async function Home() {
     <Main>
       <Hero></Hero>
       <SlidingCards></SlidingCards>
-      {/* <AppScreenshot></AppScreenshot> */}
+      <AppScreenshot></AppScreenshot>
       <Pricing></Pricing>
     </Main>
     
