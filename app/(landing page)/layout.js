@@ -9,7 +9,7 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "Keepr",
+  title: "Keep-Safe",
   description: "Keeping your secrets safe, always.",
 };
 

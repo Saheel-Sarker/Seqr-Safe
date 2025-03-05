@@ -14,7 +14,7 @@ export default function Header({font}) {
             </nav>
             <div className="flex items-center mr-[205px] ">
                 <img src="/GuyPasscode.svg" alt="hacker illustration" className="h-14 align-top mr-3" />
-                <h1 className="text-5xl font-serif">keepr</h1>
+                <h1 className="text-5xl font-serif">keep-safe</h1>
             </div>
             <div className="flex ">
                 <Link href="/login">

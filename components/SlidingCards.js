@@ -18,7 +18,7 @@ export default function SlidingCards() {
     const blurbs = [
         {
             title: "Generate strong passwords",
-            blurb: "Keepr is your personal data protection solution.",
+            blurb: "Keep-Safe is your personal data protection solution.",
             color: 'bg-blue-500'
           },
           {
@@ -43,12 +43,12 @@ export default function SlidingCards() {
           },
           {
             title: "On-the-Go Protection",
-            blurb: "Keepr keeps your data safe while you're on the go.",
+            blurb: "Keep-Safe keeps your data safe while you're on the go.",
             color: 'bg-orange-500'
           },
           {
             title: "Trusted by Thousands",
-            blurb: "Join the thousands of users trusting Keepr.",
+            blurb: "Join the thousands of users trusting Keep-Safe.",
             color: 'bg-red-500'
           }
 

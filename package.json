@@ -1,5 +1,5 @@
 {
-  "name": "keepr",
+  "name": "keep-safe",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "backend": "nodemon backend/server.mjs",
+    "backend": "nodemon api/index.js",
     "serve": "node api/index.js"
   },
   "type": "module",
