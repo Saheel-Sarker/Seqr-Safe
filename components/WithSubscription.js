@@ -1,11 +1,17 @@
 import { useAuthStore } from '@/store/auth.store'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Pricing from './Pricing';
 import CenterAuthItems from './CenterAuthItems';
 
 export default function WithSubscription({children, showPricing}) {
   const {user, isCheckingAuth} = useAuthStore();
+  const [wasAuthenticated, setWasAuthenticated] = useState(false);
   console.log(isCheckingAuth);
+  useEffect(()=>{
+    if (user?.hasAccess) {
+      setWasAuthenticated(true);
+    }
+  },[]);
   if (isCheckingAuth){
     console.log('loading');
     return(
@@ -14,12 +20,14 @@ export default function WithSubscription({children, showPricing}) {
       </div>
     )
   }
-  if (!user?.hasAccess || showPricing) {
+  if (wasAuthenticated || showPricing) {
     return <Pricing redirectToPlans={true}/>
   }
-  return (
-    <div>
-        {children}
-    </div>
-  )
+  else{
+    return (
+      <div>
+          {children}
+      </div>
+    );
+  }
 }
