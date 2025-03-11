@@ -10,7 +10,7 @@ const poppins = Poppins({
 
 export const metadata = {
   title: "Seqr Safe",
-  description: "Password and account security made simple.",
+  description: "Account security made simple.",
   image: "/GuyPasscode.svg",
 };
 
