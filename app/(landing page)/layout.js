@@ -9,8 +9,9 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "Keep-Safe",
-  description: "Keeping your secrets safe, always.",
+  title: "Seqr Safe",
+  description: "Password and account security made simple.",
+  image: "/GuyPasscode.svg",
 };
 
 export default function RootLayout({ children }) {

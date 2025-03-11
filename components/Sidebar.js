@@ -27,7 +27,7 @@ export default function Sidebar({showPricing, setShowPricing}) {
       {/* Logo and Title */}
       <div className='flex items-center pt-10 mx-auto'>
         <img src='/GuyPasscode.svg' alt='hacker illustration' className='h-11 mr-3' />
-        <h1 className='text-4xl font-serif text-white'>keep-safe</h1>
+        <h1 className='text-4xl font-serif text-white'>Seqr Safe</h1>
       </div>
 
       <div className="w-full h-px bg-white my-4 opacity-50"></div>

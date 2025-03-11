@@ -35,7 +35,7 @@ export default function TermsConditions() {
     <div className="bg-slate-800 rounded-lg p-8 max-w-7xl w-full">
 
       <h2 className="text-2xl font-semibold text-white text-center mb-4">Terms and Conditions</h2>
-      <h1 className='text-lg font-medium text-white'>These terms of Service govern your use of the Keep-Safe website. By accessing or using the Website, you agree to be bound by these Terms. If you do not agree with any part of these Terms, you may not access or use the Website.</h1>
+      <h1 className='text-lg font-medium text-white'>These terms of Service govern your use of the Seqr Safe website. By accessing or using the Website, you agree to be bound by these Terms. If you do not agree with any part of these Terms, you may not access or use the Website.</h1>
       
       {qa.map((item, index) => (
           <div key={index} className="border-b border-gray-300 py-1">

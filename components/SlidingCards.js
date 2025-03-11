@@ -19,31 +19,31 @@ export default function SlidingCards() {
           {
             title: "Generate strong passwords",
             icon: <Lock className='mx-auto'></Lock>,
-            blurb: "Keep-Safe's robust built-in password generator ensures that you can effortlessly create strong and unique passwords for all your online accounts. By eliminating the need to come up with passwords yourself, you can significantly enhance the security of your digital presence.",
+            blurb: "Seqr Safe's robust built-in password generator ensures that you can effortlessly create strong and unique passwords for all your online accounts. By eliminating the need to come up with passwords yourself, you can significantly enhance the security of your digital presence.",
             color: 'bg-blue-500'
           },
           {
             title: "Fill forms",
             icon: <Keyboard className='mx-auto'></Keyboard>,
-            blurb: "Say goodbye to the tedious process of manually filling out online forms. Keep-Safe streamlines your online experience by automatically populating forms with your saved information, such as credentials, names, and payment details. With just a few clicks, you can breeze through registrations, checkouts, and other form-based activities.",
+            blurb: "Say goodbye to the tedious process of manually filling out online forms. Seqr Safe streamlines your online experience by automatically populating forms with your saved information, such as credentials, names, and payment details. With just a few clicks, you can breeze through registrations, checkouts, and other form-based activities.",
             color: 'bg-green-500'
           },
           {
             title: "Secure",
             icon: <Shield className='mx-auto'></Shield>,
-            blurb: "Security is our utmost priority. Keep-Safe employs state-of-the-art encryption algorithms and industry-standard security practices to protect your sensitive data. Rest assured that your passwords and personal information are safeguarded against unauthorized access, ensuring your peace of mind. With our encryption, even we can't see your passwords!",
+            blurb: "Security is our utmost priority. Seqr Safe employs state-of-the-art encryption algorithms and industry-standard security practices to protect your sensitive data. Rest assured that your passwords and personal information are safeguarded against unauthorized access, ensuring your peace of mind. With our encryption, even we can't see your passwords!",
             color: 'bg-pink-500'
           },
           {
             title: "Safely store a variety of data",
             icon: <FileText className='mx-auto'></FileText>,
-            blurb: "Beyond passwords, Keep-Safe offers a secure vault to store various types of data. From credit card details and bank account information to secure notes, you can conveniently store and access your sensitive data whenever you need it.",
+            blurb: "Beyond passwords, Seqr Safe offers a secure vault to store various types of data. From credit card details and bank account information to secure notes, you can conveniently store and access your sensitive data whenever you need it.",
             color: 'bg-orange-500'
           },
           {
             title: "Easy to use",
             icon: <User className='mx-auto'></User>,
-            blurb: "Designed with simplicity in mind, our Keep-Safe offers a user-friendly interface that makes managing your passwords and personal data a breeze. From effortless navigation to intuitive features, Keep-Safe ensures a seamless user experience, even for those who are not tech-savvy. Enjoy hassle-free password management with just a few clicks.",
+            blurb: "Designed with simplicity in mind, our Seqr Safe offers a user-friendly interface that makes managing your passwords and personal data a breeze. From effortless navigation to intuitive features, Seqr Safe ensures a seamless user experience, even for those who are not tech-savvy. Enjoy hassle-free password management with just a few clicks.",
             color: 'bg-red-500'
           }
 
