@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://seqr-safe.com/sitemap.xml
