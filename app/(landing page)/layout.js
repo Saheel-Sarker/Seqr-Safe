@@ -9,8 +9,9 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "Seqr Safe",
-  description: "Account security made simple.",
+  title: "Seqr Safe – Secure Your Online Accounts with Ease",
+  description: "Seqr Safe helps you manage and secure your online accounts with encrypted password storage and seamless login automation.",
+  keywords: "password manager, secure passwords, online security, password storage, password generator, encrypted passwords, password vault, password management, secure login, two-factor authentication",
   image: "/GuyPasscode.svg",
 };
 
