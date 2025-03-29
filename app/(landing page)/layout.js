@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`antialiased`}>
         <Header font={poppins}></Header>
-          {children}
+          <main className="relative z-0">{children}</main>
         <Footer font={poppins}></Footer>
       </body>
     </html>
