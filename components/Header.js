@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function Header({font}) {
     return (
-        <header className={`${font.className} flex px-10 py-2 pb-3 justify-between items-center sticky top-0 bg-black z-100`} >
+        <header className={`${font.className} flex px-10 py-2 pb-3 justify-between items-center sticky top-0 bg-black z-20`} >
             <nav className={`${font.className} `}>
                 <ul className='flex items-center gap-x-10 text-2xl font-bold'>
                     <li><Link href="/">Home</Link></li>
