@@ -7,8 +7,8 @@ export default function Header({ font }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header>
-      <header className='flex py-3 items-center sticky top-0 bg-black z-20 justify-between'>
+    <header className='sticky top-0 z-20 py-3 bg-black'>
+      <div className='flex items-center justify-between'>
         <nav className={`${font.className} hidden md:flex flex-1 ml-16`}>
           <ul className="flex items-center text-3xl space-x-3">
             <li>
@@ -54,7 +54,7 @@ export default function Header({ font }) {
         >
           {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
-    </header>
+    </div>
 
             {isMenuOpen && (
       <div className='w-screen h-screen bg-black flex flex-col items-center'>
