@@ -31,7 +31,7 @@ export default function Sidebar({showPricing, setShowPricing}) {
   return (
     <nav className='px-6 bg-gray-950 text-white w-64 h-screen flex flex-col items-start shadow-lg'>
       {/* Logo and Title */}
-      <div className='flex items-center pt-10 mx-auto'>
+      <div className='flex pt-10 mx-auto'>
         <img src='/GuyPasscode.svg' alt='hacker illustration' className='h-11 mr-3' />
         <p className={`text-4xl ${ubuntu.className}`}>
             seqr⋅<span className='text-green-300'>safe</span>
