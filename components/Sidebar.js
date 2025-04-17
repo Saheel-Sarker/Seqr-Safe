@@ -7,6 +7,12 @@ import { useAuthStore } from '@/store/auth.store';
 import { useRouter } from 'next/navigation';
 import { Tooltip } from 'react-tooltip';
 import { motion } from 'framer-motion';
+import { Ubuntu } from 'next/font/google';
+
+const ubuntu = Ubuntu({
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 export default function Sidebar({showPricing, setShowPricing}) {
   const pathname = usePathname();
@@ -27,7 +33,7 @@ export default function Sidebar({showPricing, setShowPricing}) {
       {/* Logo and Title */}
       <div className='flex items-center pt-10 mx-auto'>
         <img src='/GuyPasscode.svg' alt='hacker illustration' className='h-11 mr-3' />
-        <p className={`text-4xl ${font2.className}`}>
+        <p className={`text-4xl ${ubuntu.className}`}>
             seqr⋅<span className='text-green-300'>safe</span>
         </p>
       </div>
