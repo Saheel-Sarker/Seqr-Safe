@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 
-export default function Header({ font }) {
+export default function Header({ font, font2 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -29,11 +29,11 @@ export default function Header({ font }) {
           <img
             src="/GuyPasscode.svg"
             alt="hacker illustration"
-            className="h-10 md:h-14 align-top mr-3"
+            className="h-10 md:h-14 mr-3"
           />
-          <h1 className="text-3xl md:text-5xl font-serif text-center md:text-left">
-            Seqr Safe
-          </h1>
+          <p className={`text-3xl md:text-5xl text-center md:text-left ${font2.className}`}>
+            seqr⋅<span className='text-green-300'>safe</span>
+          </p>
         </div>
         <div className={`flex-1 hidden md:flex flex-col md:flex-row items-center space-x-4 justify-end mr-16`}>
           <Link href="/login">
