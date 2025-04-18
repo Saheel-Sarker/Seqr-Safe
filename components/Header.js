@@ -25,15 +25,15 @@ export default function Header({ font, font2 }) {
             </li>
           </ul>
         </nav>
-        <div className="flex flex-1 justify-center">
+        <div className="flex justify-center mx-auto px-8 py-11">
           <img
             src="/GuyPasscode.svg"
             alt="hacker illustration"
             className="h-10 md:h-14 mr-3"
           />
-          <p className={`text-3xl md:text-5xl text-center md:text-left ${font2.className}`}>
+          <h1 className={`text-3xl md:text-5xl text-center md:text-left ${font2.className}`}>
             seqr⋅<span className='text-green-300'>safe</span>
-          </p>
+          </h1>
         </div>
         <div className={`flex-1 hidden md:flex flex-col md:flex-row items-center space-x-4 justify-end mr-16`}>
           <Link href="/login">
