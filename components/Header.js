@@ -25,7 +25,7 @@ export default function Header({ font, font2 }) {
             </li>
           </ul>
         </nav>
-        <div className="flex justify-center mx-auto px-8 py-11">
+        <div className="flex items-center flex-1 justify-center">
           <img
             src="/GuyPasscode.svg"
             alt="hacker illustration"
