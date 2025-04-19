@@ -7,7 +7,7 @@
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://seqr-safe.com/t&c</loc>
+        <loc>https://seqr-safe.com/t&amp;c</loc>
         <lastmod>2025-04-18</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.7</priority>
