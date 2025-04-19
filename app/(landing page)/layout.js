@@ -28,6 +28,31 @@ export const metadata = {
   title: "Seqr Safe – Secure Your Online Accounts with Ease",
   description: "Seqr Safe helps you manage and secure your online accounts with encrypted password storage and seamless login automation.",
   image: "/GuyPasscode.svg",
+  keywords: "password manager, secure password storage, online security, password generator, two-factor authentication, encrypted storage, password vault, identity protection, passwword generator, password manager, password vault, password security, password storage, password protection",
+  openGraph: {
+    title: "Seqr Safe – Secure Your Online Accounts with Ease",
+    description: "Seqr Safe helps you manage and secure your online accounts with encrypted password storage and seamless login automation.",
+    url: "https://seqrsafe.com",
+    siteName: "Seqr Safe",
+    images: [
+      {
+        url: "/GuyPasscode.svg",
+        width: 800,
+        height: 600,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Seqr Safe – Secure Your Online Accounts with Ease",
+    description: "Seqr Safe helps you manage and secure your online accounts with encrypted password storage and seamless login automation.",
+    images: "/opengraph-image.png",
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+  },
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({ children }) {
