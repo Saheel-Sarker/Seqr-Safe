@@ -12,16 +12,16 @@ export default function Header({ font, font2 }) {
         <nav className={`${font.className} hidden md:flex flex-1 ml-16`}>
           <ul className="flex items-center text-3xl space-x-3">
             <li>
-              <Link href="/">Home</Link>
+              <Link className='hover:text-cyan-500' href="/">Home</Link>
             </li>
             <li>
-              <Link href="/#pricing">Pricing</Link>
+              <Link className='hover:text-cyan-500' href="/#pricing">Pricing</Link>
             </li>
             <li>
-              <Link href="/contact">Contact</Link>
+              <Link className='hover:text-cyan-500' href="/contact">Contact</Link>
             </li>
             <li>
-              <Link href="/faq">FAQ</Link>
+              <Link className='hover:text-cyan-500' href="/faq">FAQ</Link>
             </li>
           </ul>
         </nav>
