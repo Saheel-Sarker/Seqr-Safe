@@ -32,7 +32,7 @@ export default function Header({ font, font2 }) {
             className="h-10 md:h-14 mr-3"
           />
           <h1 className={`text-3xl md:text-5xl text-center md:text-left ${font2.className}`}>
-            zeni⋅<span className='text-green-300'>safe</span>
+            zeni⋅<span className='text-green-300'>pass</span>
           </h1>
         </div>
         <div className={`flex-1 hidden md:flex flex-col md:flex-row items-center space-x-4 justify-end mr-16`}>

@@ -19,7 +19,7 @@ export default function Header({ font }) {
             className="h-10 md:h-14 align-top mr-3"
           />
           <h1 className="text-3xl md:text-5xl font-serif text-center md:text-left">
-            Seqr Safe
+            Zeni Pass
           </h1>
         </div>
 
@@ -85,7 +85,7 @@ export default function Header({ font }) {
             className="h-10 md:h-14 align-top mr-3"
           />
           <h1 className="text-3xl md:text-5xl font-serif text-center md:text-left">
-            Seqr Safe
+            Zeni Pass
           </h1>
         </div>
             <ul className="flex md:flex-row items-center gap-y-4 md:gap-y-0 gap-x-6 md:gap-x-10 text-lg md:text-2xl font-bold">

@@ -34,7 +34,7 @@ export default function Sidebar({ showPricing, setShowPricing }) {
       <header className="flex pt-10 mx-auto">
         <img src="/GuyPasscode.svg" alt="Hacker Illustration" className="h-11 mr-3" />
         <h1 className={`text-4xl ${ubuntu.className}`}>
-          seqr⋅<span className="text-green-300">safe</span>
+          zeni⋅<span className="text-green-300">pass</span>
         </h1>
       </header>
 

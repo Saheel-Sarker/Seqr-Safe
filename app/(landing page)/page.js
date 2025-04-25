@@ -10,14 +10,14 @@ const public_url = process.env.PUBLIC_URL || "https://seqrsafe.com";
 
 export async function generateMetadata() {
   return {
-    title: "Seqr Safe – Secure Your Online Accounts with Ease",
-    description: "Seqr Safe helps you manage and secure your online accounts with encrypted password storage and seamless login automation.",
+    title: "Zeni Pass – Secure Your Online Accounts with Ease",
+    description: "Zeni Pass helps you manage and secure your online accounts with encrypted password storage and seamless login automation.",
     keywords: "password manager, secure password storage, online security, password generator, two-factor authentication, encrypted storage, password vault, identity protection",
     openGraph: {
-      title: "Seqr Safe – Secure Your Online Accounts with Ease",
-      description: "Seqr Safe helps you manage and secure your online accounts with encrypted password storage and seamless login automation.",
+      title: "Zeni Pass – Secure Your Online Accounts with Ease",
+      description: "Zeni Pass helps you manage and secure your online accounts with encrypted password storage and seamless login automation.",
       url: public_url,
-      siteName: "Seqr Safe",
+      siteName: "Zeni Pass",
       images: [
         {
           url: `$/GuyPasscode.svg`,
@@ -28,8 +28,8 @@ export async function generateMetadata() {
     },
     twitter: {
       card: "summary_large_image",
-      title: "Seqr Safe – Secure Your Online Accounts with Ease",
-      description: "Seqr Safe helps you manage and secure your online accounts with encrypted password storage and seamless login automation.",
+      title: "Zeni Pass – Secure Your Online Accounts with Ease",
+      description: "Zeni Pass helps you manage and secure your online accounts with encrypted password storage and seamless login automation.",
       images: `/opengraph-image.png`,
     },
     icons: {
@@ -50,11 +50,11 @@ export default async function Home() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
-            name: "Seqr Safe",
+            name: "Zeni Pass",
             operatingSystem: "All",
             applicationCategory: "SecurityApplication",
             description:
-              "Seqr Safe is a secure password manager that helps individuals and teams store and manage credentials with strong encryption and real-time sync.",
+              "Zeni Pass is a secure password manager that helps individuals and teams store and manage credentials with strong encryption and real-time sync.",
             url: public_url,
             image: "/GuyPasscode.svg",
             offers: [
@@ -64,7 +64,7 @@ export default async function Home() {
                 priceCurrency: "CAD",
                 availability: "https://schema.org/InStock",
                 priceValidUntil: "2025-12-31",
-                description: "Monthly subscription for Seqr Safe password manager.",
+                description: "Monthly subscription for Zeni Pass password manager.",
               },
               {
                 "@type": "Offer",
@@ -72,12 +72,12 @@ export default async function Home() {
                 priceCurrency: "CAD",
                 availability: "https://schema.org/InStock",
                 priceValidUntil: "2025-12-31",
-                description: "Yearly subscription for Seqr Safe password manager.",
+                description: "Yearly subscription for Zeni Pass password manager.",
               },
             ],
             publisher: {
               "@type": "Organization",
-              name: "Seqr Safe Inc.",
+              name: "Zeni Pass Inc.",
               url: public_url,
             },
           }),
